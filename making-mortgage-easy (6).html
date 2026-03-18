@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MME Home — Home Financing, Done Easier.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1B3E;
+  --navy-mid: #1340A0;
+  --navy-light: #1967E4;
+  --blue: #1967E4;
+  --blue-bright: #4A8DF5;
+  --accent: #00D4FF;
+  --accent-light: #80EAFF;
+  --white: #FFFFFF;
+  --off-white: #F2F6FF;
+  --grey-light: #E0EAFF;
+  --grey-mid: #7A9CC8;
+  --grey-text: #4A6A9B;
+  --text: #0D1B3E;
+  --radius: 14px;
+  --radius-lg: 24px;
+  --shadow: 0 4px 24px rgba(25,103,228,0.12);
+  --shadow-lg: 0 12px 48px rgba(25,103,228,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(13,27,62,0.07);
+  padding: 0 5%;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: var(--shadow); }
+.nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav-logo-icon {
+  width: 38px; height: 38px; background: #1967E4;
+  border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.nav-logo-icon svg { width: 20px; height: 20px; }
+.nav-logo-text { font-size: 1rem; font-weight: 600; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; }
+.nav-logo-text span { display: block; font-size: 0.62rem; font-weight: 500; color: var(--grey-mid); letter-spacing: 0.02em; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--grey-text); font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  background: var(--navy) !important; color: var(--white) !important;
+  padding: 9px 22px !important; border-radius: 8px; font-weight: 600 !important;
+  transition: background 0.2s, transform 0.15s !important;
+}
+.nav-cta:hover { background: var(--blue) !important; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  padding: 140px 5% 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(160deg, #EEF4FF 0%, #F2F6FF 40%, #E0EAFF 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(25,103,228,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0,212,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 60% 80%, rgba(25,103,228,0.04) 0%, transparent 40%);
+  pointer-events: none;
+}
+/* Subtle city silhouette grid lines */
+.hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 280px;
+  background:
+    linear-gradient(to top, rgba(25,103,228,0.04) 0%, transparent 100%);
+  mask-image: linear-gradient(to top, white 0%, transparent 100%);
+  pointer-events: none;
+}
+.hero-left { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(25,103,228,0.2);
+  color: var(--navy);
+  padding: 7px 16px; border-radius: 100px;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 28px;
+  opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards;
+  box-shadow: 0 2px 12px rgba(25,103,228,0.1);
+}
+.hero-badge::before {
+  content: ''; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--blue); flex-shrink: 0;
+}
+
+.hero-h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  line-height: 1.05; color: var(--navy);
+  letter-spacing: -0.03em; margin-bottom: 20px;
+  opacity: 0; animation: fadeUp 0.6s 0.2s ease forwards;
+}
+.hero-h1 em { font-style: italic; color: var(--blue); display: block; }
+
+.hero-sub {
+  font-size: 1.1rem; color: var(--grey-text);
+  line-height: 1.65; max-width: 520px;
+  margin: 0 auto 40px; font-weight: 400;
+  opacity: 0; animation: fadeUp 0.6s 0.3s ease forwards;
+}
+
+/* Centered search bar */
+.search-card {
+  background: var(--white);
+  border-radius: 100px;
+  padding: 8px 8px 8px 24px;
+  box-shadow: 0 8px 40px rgba(13,27,62,0.14);
+  border: 1px solid rgba(25,103,228,0.12);
+  opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards;
+  display: flex; align-items: center; gap: 0;
+  max-width: 580px; margin: 0 auto;
+}
+.search-card-label { display: none; }
+.address-wrap {
+  display: flex; align-items: center; gap: 12px; flex: 1; margin-bottom: 0;
+}
+.address-wrap-icon { color: var(--grey-mid); flex-shrink: 0; }
+.address-wrap-icon svg { width: 17px; height: 17px; display: block; }
+.address-input {
+  flex: 1; border: none; background: transparent;
+  padding: 10px 0; font-size: 0.97rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text); outline: none;
+}
+.address-input::placeholder { color: var(--grey-mid); }
+.address-btn {
+  background: var(--blue); color: var(--white);
+  border: none; border-radius: 100px;
+  padding: 14px 28px; font-size: 0.92rem; font-weight: 600;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap; display: flex; align-items: center; gap: 8px;
+  flex-shrink: 0;
+}
+.address-btn:hover { background: var(--navy); transform: translateY(-1px); }
+.address-btn svg { width: 15px; height: 15px; }
+.search-note {
+  font-size: 0.76rem; color: var(--grey-mid);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 14px;
+  opacity: 0; animation: fadeUp 0.6s 0.45s ease forwards;
+}
+.search-note svg { width: 13px; height: 13px; color: var(--grey-mid); flex-shrink: 0; }
+
+.hero-stats {
+  display: flex; gap: 36px; margin-top: 48px;
+  justify-content: center;
+  opacity: 0; animation: fadeUp 0.6s 0.5s ease forwards;
+}
+.stat { display: flex; flex-direction: column; align-items: center; }
+.stat-num { font-family: 'Instrument Serif', serif; font-size: 1.55rem; color: var(--navy); line-height: 1.1; }
+.stat-label { font-size: 0.73rem; color: var(--grey-mid); font-weight: 500; margin-top: 2px; }
+.stat-divider { width: 1px; background: rgba(25,103,228,0.15); align-self: stretch; }
+
+/* Hide hero right visual */
+.hero-right { display: none !important; }
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--white); border-top: 1px solid var(--grey-light); border-bottom: 1px solid var(--grey-light);
+  padding: 26px 5%; text-align: center;
+}
+.trust-bar-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 18px; }
+.trust-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+.trust-logo { font-size: 0.8rem; font-weight: 700; color: var(--grey-mid); opacity: 0.55; transition: opacity 0.2s; letter-spacing: -0.01em; }
+.trust-logo:hover { opacity: 1; }
+
+/* ── SECTIONS ── */
+section { padding: 96px 5%; }
+.section-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+.section-h2 { font-family: 'Instrument Serif', serif; font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.15; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 14px; }
+.section-sub { font-size: 0.975rem; color: var(--grey-text); line-height: 1.65; max-width: 540px; margin-bottom: 52px; }
+
+/* ── PRODUCTS ── */
+.products-section { background: var(--off-white); }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.product-card {
+  background: var(--white); border-radius: var(--radius-lg); padding: 30px;
+  border: 1px solid rgba(13,27,62,0.07); transition: box-shadow 0.25s, transform 0.25s;
+  position: relative; overflow: hidden; cursor: default;
+}
+.product-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.product-card.featured { background: var(--navy); border-color: var(--navy); }
+.product-card.featured::after {
+  content: 'Most Popular'; position: absolute; top: 18px; right: -32px;
+  background: var(--accent); color: var(--navy); font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 42px; transform: rotate(45deg);
+}
+.product-icon { width: 46px; height: 46px; border-radius: 12px; background: var(--off-white); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.product-card.featured .product-icon { background: rgba(255,255,255,0.1); }
+.product-icon svg { width: 21px; height: 21px; color: var(--blue); }
+.product-card.featured .product-icon svg { color: var(--accent); }
+.product-name { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.product-card.featured .product-name { color: var(--white); }
+.product-desc { font-size: 0.86rem; color: var(--grey-text); line-height: 1.6; margin-bottom: 20px; }
+.product-card.featured .product-desc { color: rgba(255,255,255,0.55); }
+.product-link { font-size: 0.8rem; font-weight: 600; color: var(--blue); text-decoration: none; display: flex; align-items: center; gap: 5px; transition: gap 0.2s; cursor: pointer; }
+.product-link:hover { gap: 9px; }
+.product-card.featured .product-link { color: var(--accent); }
+
+/* ── HOW IT WORKS ── */
+.how-section { background: var(--white); }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+.how-grid::before {
+  content: ''; position: absolute;
+  top: 39px; left: calc(16.66% + 24px); right: calc(16.66% + 24px);
+  height: 1px; background: linear-gradient(to right, var(--blue-bright), var(--accent)); z-index: 0;
+}
+.how-step { padding: 0 28px; text-align: center; position: relative; }
+.how-step:first-child { padding-left: 0; }
+.how-step:last-child { padding-right: 0; }
+.how-num {
+  width: 78px; height: 78px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Instrument Serif', serif; font-size: 1.55rem; color: var(--blue);
+  margin: 0 auto 26px; position: relative; z-index: 1; transition: background 0.2s, color 0.2s;
+}
+.how-step:hover .how-num { background: var(--blue); color: var(--white); }
+.how-title { font-size: 0.98rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.how-desc { font-size: 0.855rem; color: var(--grey-text); line-height: 1.65; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background: #0D1B3E; overflow: hidden; }
+.testimonials-section .section-tag { color: var(--accent); }
+.testimonials-section .section-h2 { color: var(--white); }
+.testimonials-section .section-sub { color: rgba(255,255,255,0.5); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.testi-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-lg); padding: 26px; transition: background 0.2s;
+}
+.testi-card:hover { background: rgba(255,255,255,0.09); }
+.testi-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+.testi-stars svg { width: 13px; height: 13px; fill: var(--accent); }
+.testi-quote { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.82); margin-bottom: 20px; font-style: italic; font-family: 'Instrument Serif', serif; }
+.testi-author { display: flex; align-items: center; gap: 11px; }
+.testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue-bright), var(--navy-light)); display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; color: white; flex-shrink: 0; }
+.testi-name { font-size: 0.855rem; font-weight: 600; color: white; }
+.testi-detail { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+/* ── CTA ── */
+.cta-section {
+  padding: 80px 5%;
+  background: linear-gradient(135deg, #0D1B3E 0%, #1967E4 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(0,212,255,0.12), transparent 65%);
+  pointer-events: none;
+}
+.cta-section .section-h2 { color: var(--white); max-width: 580px; margin: 0 auto 12px; }
+.cta-section .section-sub { color: rgba(255,255,255,0.5); text-align: center; margin: 0 auto 34px; }
+.cta-btn {
+  background: var(--accent); color: var(--navy); border: none; border-radius: 10px;
+  padding: 15px 36px; font-size: 0.98rem; font-weight: 700; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; transition: background 0.2s, transform 0.15s; letter-spacing: -0.01em;
+}
+.cta-btn:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 52px 5% 32px; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+.footer-brand-name { font-size: 1rem; font-weight: 600; color: white; }
+.footer-brand-name span { display: block; font-size: 0.62rem; font-weight: 400; color: rgba(255,255,255,0.35); margin-top: 1px; letter-spacing: 0.03em; }
+.footer-brand p { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 10px; max-width: 250px; line-height: 1.6; }
+.footer-links { display: flex; gap: 56px; flex-wrap: wrap; }
+.footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
+.footer-col a { display: block; text-decoration: none; font-size: 0.855rem; color: rgba(255,255,255,0.6); margin-bottom: 9px; transition: color 0.2s; }
+.footer-col a:hover { color: white; }
+.footer-bottom { padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.7rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+.footer-bottom-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+.footer-bottom-top span { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+.footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(13,27,62,0.72);
+  backdrop-filter: blur(8px); z-index: 200;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--white); border-radius: var(--radius-lg); padding: 40px;
+  max-width: 500px; width: 100%; position: relative;
+  box-shadow: 0 24px 80px rgba(13,27,62,0.3);
+  transform: translateY(20px); transition: transform 0.3s;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--grey-light); border: none; cursor: pointer;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: var(--grey-text); transition: background 0.2s;
+}
+.modal-close:hover { background: #dde2eb; }
+.modal-step { display: none; }
+.modal-step.active { display: block; }
+.modal-progress { display: flex; gap: 6px; margin-bottom: 26px; }
+.progress-dot { height: 3px; border-radius: 3px; flex: 1; background: var(--grey-light); transition: background 0.3s; }
+.progress-dot.active { background: var(--blue); }
+.modal-badge { display: inline-flex; align-items: center; gap: 7px; background: rgba(25,103,228,0.08); border: 1px solid rgba(25,103,228,0.14); color: var(--blue); padding: 5px 12px; border-radius: 100px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; }
+.modal-h2 { font-family: 'Instrument Serif', serif; font-size: 1.65rem; color: var(--navy); margin-bottom: 6px; line-height: 1.2; }
+.modal-sub { font-size: 0.86rem; color: var(--grey-text); margin-bottom: 24px; line-height: 1.55; }
+.modal-address-tag { background: var(--off-white); border: 1px solid var(--grey-light); border-radius: 9px; padding: 11px 14px; font-size: 0.855rem; color: var(--grey-text); margin-bottom: 22px; display: flex; align-items: center; gap: 8px; }
+.modal-address-tag svg { width: 13px; height: 13px; color: var(--blue); flex-shrink: 0; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+.form-label { font-size: 0.76rem; font-weight: 600; color: var(--navy); letter-spacing: 0.02em; }
+.form-input, .form-select { border: 1.5px solid var(--grey-light); border-radius: 9px; padding: 11px 13px; font-size: 0.88rem; font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); outline: none; width: 100%; transition: border-color 0.2s, box-shadow 0.2s; }
+.form-input:focus, .form-select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(25,103,228,0.1); background: var(--white); }
+.form-submit { width: 100%; background: var(--navy); color: var(--white); border: none; border-radius: 10px; padding: 14px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; margin-top: 6px; transition: background 0.2s, transform 0.15s; }
+.form-submit:hover { background: var(--blue); transform: translateY(-1px); }
+.form-disclaimer { font-size: 0.7rem; color: var(--grey-mid); line-height: 1.5; text-align: center; margin-top: 12px; }
+.success-center { text-align: center; padding: 12px 0; }
+.success-icon { width: 64px; height: 64px; background: rgba(74,141,245,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+.success-icon svg { width: 28px; height: 28px; color: var(--blue); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { padding-top: 110px; padding-bottom: 60px; }
+  .how-grid { grid-template-columns: 1fr; gap: 36px; }
+  .how-grid::before { display: none; }
+  .how-step { padding: 0; text-align: left; display: flex; gap: 18px; align-items: flex-start; }
+  .how-num { margin: 0; flex-shrink: 0; width: 52px; height: 52px; font-size: 1.2rem; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .address-wrap { flex-direction: column; }
+  .address-btn { width: 100%; justify-content: center; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .trust-logos { gap: 22px; }
+  .footer-top { flex-direction: column; }
+  .footer-links { gap: 28px; }
+  .modal { padding: 28px 20px; }
+}
+
+/* ── HELOC CALLOUT ── */
+.heloc-callout {
+  background: linear-gradient(135deg, #0D1B3E 0%, #1967E4 100%);
+  padding: 80px 5%;
+  position: relative;
+  overflow: hidden;
+}
+.heloc-callout::before {
+  content: '';
+  position: absolute; top: -120px; right: -120px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(74,141,245,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.heloc-callout::after {
+  content: '';
+  position: absolute; bottom: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.heloc-callout-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.heloc-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #0D1B3E;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #FFFFFF;
+  padding: 5px 14px; border-radius: 100px;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.heloc-h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.heloc-bullets {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 14px;
+  margin-bottom: 36px;
+}
+.heloc-bullets li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.975rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+}
+.heloc-bullets li svg {
+  width: 18px; height: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.heloc-btn {
+  background: var(--white);
+  color: var(--navy);
+  border: none; border-radius: 10px;
+  padding: 15px 40px;
+  font-size: 0.98rem; font-weight: 700;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: -0.01em;
+}
+.heloc-btn:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+.heloc-callout-right {
+  display: flex; justify-content: center; align-items: center;
+}
+.heloc-phone-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 28px;
+  padding: 4px;
+  box-shadow: 0 24px 60px rgba(13,27,62,0.4);
+  width: 100%;
+  max-width: 320px;
+}
+.heloc-phone-inner {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 36px 28px;
+}
+.heloc-congrats-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--blue), var(--navy-light));
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.heloc-congrats-icon svg { width: 24px; height: 24px; color: white; }
+.heloc-congrats-label {
+  text-align: center;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--grey-mid);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.heloc-congrats-amount {
+  text-align: center;
+  font-family: 'Instrument Serif', serif;
+  font-size: 3rem;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.heloc-congrats-sub {
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--grey-mid);
+  margin-bottom: 20px;
+}
+.heloc-divider {
+  height: 1px; background: var(--grey-light); margin-bottom: 16px;
+}
+.heloc-detail-row {
+  display: flex; justify-content: space-between;
+  font-size: 0.83rem; padding: 7px 0;
+  border-bottom: 1px solid var(--grey-light);
+}
+.heloc-detail-row:last-child { border-bottom: none; }
+.heloc-detail-row span:first-child { color: var(--grey-text); }
+.heloc-detail-row span:last-child { color: var(--navy); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .heloc-callout-inner { grid-template-columns: 1fr; gap: 40px; }
+  .heloc-callout-right { display: none; }
+}
+
+
+/* ── MODAL FORM ELEMENTS ── */
+.modal { overflow-y: auto; max-height: 90vh; }
+
+.modal-step-header {
+  font-size: 1.08rem; font-weight: 700; color: var(--navy);
+  margin-bottom: 18px; line-height: 1.35;
+}
+.form-question {
+  font-size: 0.9rem; font-weight: 600; color: var(--navy);
+  margin-bottom: 10px;
+}
+.field-hint { font-size: 0.72rem; color: var(--grey-mid); margin-top: 5px; }
+.step-note { font-size: 0.7rem; color: var(--grey-mid); line-height: 1.55; margin-top: 12px; }
+
+/* Floating label */
+.fwrap { position: relative; margin-bottom: 12px; }
+.finput {
+  width: 100%; padding: 20px 14px 7px;
+  border: 1.5px solid var(--grey-light); border-radius: 9px;
+  font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+  color: var(--text); background: var(--off-white); outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none; -webkit-appearance: none;
+  box-sizing: border-box;
+}
+.finput:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(25,103,228,0.1);
+  background: var(--white);
+}
+.flabel {
+  position: absolute; top: 50%; left: 14px;
+  transform: translateY(-50%);
+  font-size: 0.88rem; color: var(--grey-mid); font-weight: 500;
+  pointer-events: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.finput:focus ~ .flabel,
+.finput:not(:placeholder-shown) ~ .flabel {
+  top: 9px; transform: translateY(0);
+  font-size: 0.65rem; color: var(--blue); font-weight: 600; letter-spacing: 0.03em;
+}
+select.finput { cursor: pointer; padding-right: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2385AECA' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+}
+select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem; color: var(--blue); font-weight: 600; letter-spacing: 0.03em; }
+
+/* Occupancy tiles */
+.occ-tiles { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+.occ-tile {
+  flex: 1; min-width: 120px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; padding: 14px 10px;
+  border: 1.5px solid var(--grey-light); border-radius: 12px;
+  background: var(--off-white); cursor: pointer; font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem; font-weight: 500; color: var(--grey-text);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.occ-tile svg { width: 22px; height: 22px; color: var(--grey-mid); transition: color 0.2s; }
+.occ-tile:hover { border-color: var(--blue); background: var(--white); }
+.occ-tile.selected { border-color: var(--blue); background: rgba(25,103,228,0.07); color: var(--blue); }
+.occ-tile.selected svg { color: var(--blue); }
+
+/* Yes/No tiles */
+.yn-tiles { display: flex; gap: 12px; margin-bottom: 24px; }
+.yn-tile {
+  padding: 11px 32px; border-radius: 100px;
+  border: 1.5px solid var(--grey-light); background: var(--white);
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
+  color: var(--grey-text); cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.yn-tile:hover { border-color: var(--blue); color: var(--blue); }
+.yn-tile.selected { border-color: var(--blue); background: rgba(25,103,228,0.07); color: var(--blue); font-weight: 600; }
+
+/* Income row */
+.income-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* Name grid */
+.name-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.name-first { grid-column: 1; }
+.name-middle { grid-column: 2; }
+.name-last { grid-column: 1; }
+.name-suffix { grid-column: 2; }
+
+/* Footer row with note + button */
+.modal-footer-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-top: 20px; padding-top: 16px;
+  border-top: 1px solid var(--grey-light);
+  flex-wrap: wrap;
+}
+.modal-footer-note { font-size: 0.72rem; color: var(--grey-mid); flex: 1; min-width: 160px; }
+.modal-continue-btn {
+  background: var(--blue); color: var(--white);
+  border: none; border-radius: 100px;
+  padding: 12px 28px; font-size: 0.92rem; font-weight: 600;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s, transform 0.15s; white-space: nowrap;
+}
+.modal-continue-btn:hover { background: var(--navy); transform: translateY(-1px); }
+
+/* Consent checkboxes */
+.consent-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 14px; cursor: pointer;
+  font-size: 0.82rem; color: var(--text); line-height: 1.5;
+}
+.consent-check {
+  width: 18px; height: 18px; flex-shrink: 0;
+  margin-top: 1px; accent-color: var(--blue); cursor: pointer;
+}
+.consent-link { color: var(--blue); text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .income-row { grid-template-columns: 1fr; }
+  .name-grid { grid-template-columns: 1fr; }
+  .name-first, .name-middle, .name-last, .name-suffix { grid-column: 1; }
+  .occ-tiles { flex-direction: column; }
+  .modal-footer-row { flex-direction: column; align-items: stretch; }
+  .modal-continue-btn { width: 100%; text-align: center; }
+}
+
+/* ── PRODUCTS TABS ── */
+.products-tab-section { background: var(--white); padding: 96px 5%; }
+.products-tab-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1100px; margin: 0 auto; }
+.products-tab-visual {
+  position: sticky; top: 100px;
+  background: var(--navy); border-radius: 24px;
+  overflow: hidden; aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+.tab-visual-panel { display: none; width: 100%; height: 100%; padding: 32px; flex-direction: column; justify-content: center; }
+.tab-visual-panel.active { display: flex; }
+.tab-visual-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.tab-visual-title { font-family: 'Instrument Serif', serif; font-size: 2rem; color: white; line-height: 1.2; margin-bottom: 20px; }
+.tab-visual-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+.tab-visual-stat { background: rgba(255,255,255,0.08); border-radius: 12px; padding: 14px 18px; flex: 1; min-width: 100px; }
+.tab-visual-stat-num { font-family: 'Instrument Serif', serif; font-size: 1.6rem; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+.tab-visual-stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+.tab-visual-bar { margin-top: 20px; }
+.tab-visual-bar-label { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+.tab-visual-bar-track { background: rgba(255,255,255,0.1); border-radius: 100px; height: 6px; overflow: hidden; }
+.tab-visual-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(to right, #1967E4, #00D4FF); transition: width 0.5s ease; }
+
+.products-tab-list { display: flex; flex-direction: column; }
+.products-tab-item { border-bottom: 1px solid var(--grey-light); cursor: pointer; }
+.products-tab-item:first-child { border-top: 1px solid var(--grey-light); }
+.products-tab-header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; gap: 12px; }
+.products-tab-name { font-family: 'Instrument Serif', serif; font-size: 1.4rem; color: var(--grey-mid); transition: color 0.2s; line-height: 1; }
+.products-tab-item.active .products-tab-name { color: var(--navy); }
+.products-tab-indicator { width: 3px; height: 0; background: var(--blue); border-radius: 100px; flex-shrink: 0; transition: height 0.3s ease; align-self: stretch; }
+.products-tab-item.active .products-tab-indicator { height: auto; min-height: 40px; }
+.products-tab-body { display: none; padding-bottom: 22px; }
+.products-tab-item.active .products-tab-body { display: block; }
+.products-tab-desc { font-size: 0.9rem; color: var(--grey-text); line-height: 1.65; margin-bottom: 16px; max-width: 380px; }
+.products-tab-btn { background: transparent; border: 1.5px solid var(--navy); color: var(--navy); border-radius: 100px; padding: 10px 24px; font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s, color 0.2s; }
+.products-tab-btn:hover { background: var(--navy); color: white; }
+
+@media (max-width: 900px) {
+  .products-tab-inner { grid-template-columns: 1fr; }
+  .products-tab-visual { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      MME Home
+      <span>Wholesale Mortgage Broker</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal(event,'')">Get My Rate</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge">Wholesale Broker &middot; 100+ Lenders</div>
+    <h1 class="hero-h1">
+      Home financing,
+      <em>done easier.</em>
+    </h1>
+    <p class="hero-sub">As a wholesale mortgage broker, we give you access to 100+ lenders &mdash; meaning better rates, more options, and a smoother process than any bank can offer.</p>
+    <div class="search-card">
+      <div class="address-wrap">
+        <div class="address-wrap-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <input type="text" class="address-input" id="heroAddress" placeholder="Enter your property address&hellip;" />
+      </div>
+      <button class="address-btn" onclick="openModal(event, document.getElementById('heroAddress').value)">
+        Get Estimate
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="search-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Instant rate estimate &bull; No credit check
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Wholesale lenders</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">5&#9733;</span><span class="stat-label">Client rating</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">7 days</span><span class="stat-label">Funding in as few as</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HELOC CALLOUT -->
+<section class="heloc-callout">
+  <div class="heloc-callout-inner">
+    <div class="heloc-callout-left">
+      <div class="heloc-tag">Featured Product</div>
+      <h2 class="heloc-h2">HELOC</h2>
+      <ul class="heloc-bullets">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Funding in as few as 7 days</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Borrow up to $500,000</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Access to 100+ wholesale lenders for the best available rate</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Use funds for renovations, debt consolidation, investments &amp; more</li>
+      </ul>
+      <button class="heloc-btn" onclick="openModal(event,'')">Get started</button>
+    </div>
+    <div class="heloc-callout-right">
+      <div class="heloc-phone-card">
+        <div class="heloc-phone-inner">
+          <div class="heloc-congrats-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="heloc-congrats-label">You may qualify for</div>
+          <div class="heloc-congrats-amount">$500K</div>
+          <div class="heloc-congrats-sub">HELOC &middot; Subject to approval</div>
+          <div class="heloc-divider"></div>
+          <div class="heloc-detail-row"><span>Draw Period</span><span>10 Years</span></div>
+          <div class="heloc-detail-row"><span>Funding</span><span>As few as 7 days</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-label">Access to top wholesale lenders including</div>
+  <div class="trust-logos">
+    <span class="trust-logo">United Wholesale</span>
+    <span class="trust-logo">Pennymac</span>
+    <span class="trust-logo">Rocket Pro TPO</span>
+    <span class="trust-logo">loanDepot</span>
+    <span class="trust-logo">Plaza Home</span>
+    <span class="trust-logo">+ 95 more</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-tab-section" id="products">
+  <div class="reveal" style="text-align:center;margin-bottom:56px;">
+    <span class="section-tag">Loan Products</span>
+    <h2 class="section-h2">Unlock more possibilities<br>with MME Home</h2>
+  </div>
+  <div class="products-tab-inner reveal">
+
+    <!-- Visual panel -->
+    <div class="products-tab-visual">
+            <div class="tab-visual-panel active" id="visual-0">
+        <div class="tab-visual-label">HELOC</div>
+        <div class="tab-visual-title">Flexible access to your equity</div>
+        <div class="tab-visual-stats">
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">$500K</div><div class="tab-visual-stat-label">Max borrow</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">7 days</div><div class="tab-visual-stat-label">Funding as few as</div></div>
+        </div>
+        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Draw period flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:90%"></div></div></div>
+      </div>
+      <div class="tab-visual-panel" id="visual-1">
+        <div class="tab-visual-label">DSCR Loans</div>
+        <div class="tab-visual-title">Qualify on rental income</div>
+        <div class="tab-visual-stats">
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">No</div><div class="tab-visual-stat-label">Personal income needed</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">1.0+</div><div class="tab-visual-stat-label">Min. DSCR ratio</div></div>
+        </div>
+        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Investor portfolio growth</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:72%"></div></div></div>
+      </div>
+      <div class="tab-visual-panel" id="visual-2">
+        <div class="tab-visual-label">Cash-Out Refinance</div>
+        <div class="tab-visual-title">Turn equity into opportunity</div>
+        <div class="tab-visual-stats">
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">80%</div><div class="tab-visual-stat-label">Max LTV</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">$500K+</div><div class="tab-visual-stat-label">Max cash out</div></div>
+        </div>
+        <div class="tab-visual-bar"><div class="tab-visual-bar-label">vs. credit card APR</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:88%"></div></div></div>
+      </div>
+      <div class="tab-visual-panel" id="visual-3">
+        <div class="tab-visual-label">Purchase</div>
+        <div class="tab-visual-title">Buy your home at wholesale rates</div>
+        <div class="tab-visual-stats">
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">3%</div><div class="tab-visual-stat-label">Min. down payment</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">100+</div><div class="tab-visual-stat-label">Lenders shopped</div></div>
+        </div>
+        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Rate advantage vs. retail banks</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:78%"></div></div></div>
+      </div>
+      <div class="tab-visual-panel" id="visual-4">
+        <div class="tab-visual-label">Refinance</div>
+        <div class="tab-visual-title">Lower your rate &amp; payment</div>
+        <div class="tab-visual-stats">
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">0.5%</div><div class="tab-visual-stat-label">Avg. rate savings</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">21 days</div><div class="tab-visual-stat-label">Avg. close time</div></div>
+        </div>
+        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Monthly savings potential</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:65%"></div></div></div>
+      </div>
+      <div class="tab-visual-panel" id="visual-5">
+        <div class="tab-visual-label">FHA / VA</div>
+        <div class="tab-visual-title">Government-backed home loans</div>
+        <div class="tab-visual-stats">
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">3.5%</div><div class="tab-visual-stat-label">Min. FHA down</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">0%</div><div class="tab-visual-stat-label">VA down payment</div></div>
+        </div>
+        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Qualification flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:85%"></div></div></div>
+      </div>
+<div class="tab-visual-title">Government-backed home loans</div>
+        <div class="tab-visual-stats">
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">3.5%</div><div class="tab-visual-stat-label">Min. FHA down</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">0%</div><div class="tab-visual-stat-label">VA down payment</div></div>
+        </div>
+        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Qualification flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:85%"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Tab list -->
+    <div class="products-tab-list">
+            <div class="products-tab-item active" onclick="selectTab(0)">
+        <div class="products-tab-header">
+          <span class="products-tab-name" style="font-weight:700;">HELOC</span>
+          <div class="products-tab-indicator"></div>
+        </div>
+        <div class="products-tab-body">
+          <p class="products-tab-desc">Access a revolving line of credit against your home&rsquo;s equity &mdash; use what you need, when you need it. Funding in as few as 7 days.</p>
+          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+        </div>
+      </div>
+      <div class="products-tab-item" onclick="selectTab(1)">
+        <div class="products-tab-header">
+          <span class="products-tab-name" style="font-weight:700;">DSCR Loans</span>
+          <div class="products-tab-indicator"></div>
+        </div>
+        <div class="products-tab-body">
+          <p class="products-tab-desc">Qualify using your rental property&rsquo;s income &mdash; not your personal income. Ideal for real estate investors scaling their portfolio.</p>
+          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+        </div>
+      </div>
+      <div class="products-tab-item" onclick="selectTab(2)">
+        <div class="products-tab-header">
+          <span class="products-tab-name" style="font-weight:700;">Cash-Out Refinance</span>
+          <div class="products-tab-indicator"></div>
+        </div>
+        <div class="products-tab-body">
+          <p class="products-tab-desc">Tap into your home equity to fund renovations, consolidate debt, or invest &mdash; at rates that beat your credit card.</p>
+          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+        </div>
+      </div>
+      <div class="products-tab-item" onclick="selectTab(3)">
+        <div class="products-tab-header">
+          <span class="products-tab-name">Purchase</span>
+          <div class="products-tab-indicator"></div>
+        </div>
+        <div class="products-tab-body">
+          <p class="products-tab-desc">Buy your first home or next property with wholesale rates banks simply can&rsquo;t match. Down payments from 3%, with access to 100+ lenders.</p>
+          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+        </div>
+      </div>
+      <div class="products-tab-item" onclick="selectTab(4)">
+        <div class="products-tab-header">
+          <span class="products-tab-name" style="font-weight:700;">Refinance</span>
+          <div class="products-tab-indicator"></div>
+        </div>
+        <div class="products-tab-body">
+          <p class="products-tab-desc">Lower your rate, reduce your monthly payment, or shorten your loan term with access to wholesale pricing across 100+ lenders.</p>
+          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+        </div>
+      </div>
+      <div class="products-tab-item" onclick="selectTab(5)">
+        <div class="products-tab-header">
+          <span class="products-tab-name" style="font-weight:700;">FHA / VA Loans</span>
+          <div class="products-tab-indicator"></div>
+        </div>
+        <div class="products-tab-body">
+          <p class="products-tab-desc">Government-backed programs for first-time buyers and veterans. Low down payments, flexible qualification requirements.</p>
+          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+        </div>
+      </div>
+</div>
+        <div class="products-tab-body">
+          <p class="products-tab-desc">Government-backed programs for first-time buyers and veterans. Low down payments, flexible qualification requirements.</p>
+          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="reveal">
+    <span class="section-tag">How It Works</span>
+    <h2 class="section-h2">From address to approval<br>in three simple steps.</h2>
+    <p class="section-sub">We&rsquo;ve stripped out the complexity so you can focus on finding the right home &mdash; not drowning in paperwork.</p>
+  </div>
+  <div class="how-grid reveal">
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <div>
+        <div class="how-title">Search your address</div>
+        <div class="how-desc">Enter your property address to instantly see what you may qualify for &mdash; no credit pull, no commitment.</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <div>
+        <div class="how-title">Fill out a short form</div>
+        <div class="how-desc">Takes under 5 minutes. We shop your profile across 100+ wholesale lenders to find the best fit for you.</div>
+      </div>
+    </div>
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <div>
+        <div class="how-title">Get matched with a consultant</div>
+        <div class="how-desc">A consultant personally reaches out with your top options, a clear side-by-side comparison, and zero pressure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="reveal">
+    <span class="section-tag">Client Reviews</span>
+    <h2 class="section-h2">Real people, real results.</h2>
+    <p class="section-sub">Don&rsquo;t take our word for it &mdash; here&rsquo;s what homeowners across California have to say.</p>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testi-card">
+      <div class="testi-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="testi-quote">&ldquo;Shane got me a rate 0.5% lower than my bank offered. The whole process was transparent and shockingly fast. Funded in as few as 7 days.&rdquo;</div>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
+        <div><div class="testi-name">Marcus R.</div><div class="testi-detail">Purchase &middot; Irvine, CA</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="testi-quote">&ldquo;I had no idea how much I was leaving on the table with my bank. The comparison sheet alone was eye-opening. Highly recommend.&rdquo;</div>
+      <div class="testi-author">
+        <div class="testi-avatar">JL</div>
+        <div><div class="testi-name">Jennifer L.</div><div class="testi-detail">Cash-Out Refi &middot; Newport Beach, CA</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="testi-quote">&ldquo;As a first-time VA buyer I was nervous. Shane walked me through every step and got me an incredible rate. Could not have asked for more.&rdquo;</div>
+      <div class="testi-author">
+        <div class="testi-avatar">DK</div>
+        <div><div class="testi-name">David K.</div><div class="testi-detail">VA Purchase &middot; Anaheim, CA</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <span class="section-tag" style="color:var(--accent);">Get Started Today</span>
+  <h2 class="section-h2">Ready to see what you qualify for?</h2>
+  <p class="section-sub">Search your address and we&rsquo;ll match you with the best rates from 100+ wholesale lenders &mdash; no credit pull, no obligation.</p>
+  <button class="cta-btn" onclick="openModal(event,'')">Search My Address &rarr;</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="footer-brand-name">MME Home<span>Wholesale Mortgage Broker</span></div>
+      </div>
+      <p>Helping California homeowners access better rates through our network of 100+ wholesale lenders.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="#" onclick="openModal(event,'')">Purchase</a>
+        <a href="#" onclick="openModal(event,'')">Refinance</a>
+        <a href="#" onclick="openModal(event,'')">Cash-Out Refi</a>
+        <a href="#" onclick="openModal(event,'')">HELOC</a>
+        <a href="#" onclick="openModal(event,'')">FHA / VA</a>
+        <a href="#" onclick="openModal(event,'')">DSCR Loans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#how">How It Works</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener">Zillow Profile</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS Consumer Access</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-top">
+      <span>&copy; 2025 MME Home. All rights reserved.</span>
+      <span>NMLS# 1082653 &middot; DRE# 02244476 &middot; Equal Housing Lender</span>
+    </div>
+    <p>MME Home is a licensed wholesale mortgage broker. We are not a lender. Loan products are subject to credit and property approval. Rates are subject to change without notice and are not guaranteed. Not all applicants will qualify. Equal Housing Opportunity. Licensed in California. NMLS# 1082653 | DRE# 02244476. <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS Consumer Access</a>.</p>
+  </div>
+</footer>
+
+<!-- LEAD MODAL -->
+<div class="modal-overlay" id="leadModal" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+    <div class="modal-progress" id="modalProgress"></div>
+
+    <div class="modal-step active" id="step1">
+      <div class="modal-step-header">Apply in 5 minutes, receive funding in as few as 7 days</div>
+      <div class="form-question">What's your property address for financing?</div>
+      <div class="fwrap" id="addressFieldWrap" style="margin-bottom:12px;">
+        <input type="text" class="finput" id="modalAddress" placeholder=" " />
+        <label class="flabel">Address &mdash; Search for your address</label>
+      </div>
+      <div class="modal-address-tag" id="modalAddressDisplay" style="display:none;margin-bottom:12px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span id="modalAddressText"></span>
+      </div>
+      <div class="fwrap" style="margin-bottom:20px;">
+        <select class="finput" id="ownershipType">
+          <option value="" disabled selected></option>
+          <option>Own outright (no mortgage)</option>
+          <option>Have a mortgage</option>
+          <option>Recently purchased (under 90 days)</option>
+        </select>
+        <label class="flabel">Ownership type</label>
+      </div>
+      <div class="form-question">What is the occupancy type?</div>
+      <div class="occ-tiles">
+        <button type="button" class="occ-tile" onclick="selectOcc(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Primary property
+        </button>
+        <button type="button" class="occ-tile" onclick="selectOcc(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9"/><path d="M9 22V12h6v10M2 10.6L12 2l10 8.6"/></svg>
+          Secondary property
+        </button>
+        <button type="button" class="occ-tile" onclick="selectOcc(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          Investment property
+        </button>
+      </div>
+      <p class="step-note">*If you have purchased your home in the last 90 days or the title was transferred in the last 90 days, eligibility may be limited.</p>
+      <div class="modal-footer-row">
+        <span class="modal-footer-note">Apply in 5 minutes, receive funding in as few as 7 days</span>
+        <button class="modal-continue-btn" onclick="showStep(2)">Continue</button>
+      </div>
+    </div>
+
+    <div class="modal-step" id="step2">
+      <div class="modal-step-header">Is this property currently for sale?</div>
+      <div class="yn-tiles">
+        <button type="button" class="yn-tile" onclick="selectYN(this)">Yes</button>
+        <button type="button" class="yn-tile" onclick="selectYN(this)">No</button>
+      </div>
+      <div class="modal-footer-row">
+        <span class="modal-footer-note">Apply in 5 minutes, receive funding in as few as 7 days</span>
+        <button class="modal-continue-btn" onclick="showStep(3)">Continue</button>
+      </div>
+    </div>
+
+    <div class="modal-step" id="step3">
+      <div class="modal-step-header">What is your annual income?</div>
+      <div class="income-row">
+        <div>
+          <div class="fwrap">
+            <input type="text" class="finput" placeholder=" " onfocus="addDollar(this)" />
+            <label class="flabel">Annual pre-tax income *</label>
+          </div>
+          <p class="field-hint">Include bonus and all jobs</p>
+        </div>
+        <div>
+          <div class="fwrap">
+            <input type="text" class="finput" placeholder=" " onfocus="addDollar(this)" />
+            <label class="flabel">Other income (optional) **</label>
+          </div>
+          <p class="field-hint">Rental, investment, retirement, etc.</p>
+        </div>
+      </div>
+      <div class="fwrap" style="margin-top:14px;max-width:260px;">
+        <select class="finput">
+          <option value="" disabled selected></option>
+          <option>Employed (W-2)</option>
+          <option>Self-employed</option>
+          <option>Retired</option>
+          <option>Social Security / Disability</option>
+          <option>Other</option>
+        </select>
+        <label class="flabel">Primary source of annual income</label>
+      </div>
+      <p class="step-note" style="margin-top:14px;">* You may include income considered community or marital income in your state.<br>** Disclosure of alimony, child support, or separate maintenance payments is not required unless you would like us to consider this for qualification.</p>
+      <div class="modal-footer-row">
+        <span class="modal-footer-note">Apply in 5 minutes, receive funding in as few as 7 days</span>
+        <button class="modal-continue-btn" onclick="showStep(4)">Continue</button>
+      </div>
+    </div>
+
+    <div class="modal-step" id="step4">
+      <div class="modal-step-header">What is your legal name?</div>
+      <p class="modal-sub" style="margin-bottom:20px;">For verification purposes, please provide your legal name as it appears on your government-issued ID.</p>
+      <div class="name-grid">
+        <div class="fwrap name-first"><input type="text" class="finput" placeholder=" " /><label class="flabel">First Name</label></div>
+        <div class="fwrap name-middle"><input type="text" class="finput" placeholder=" " /><label class="flabel">Middle Name (optional)</label></div>
+        <div class="fwrap name-last"><input type="text" class="finput" placeholder=" " /><label class="flabel">Last Name</label></div>
+        <div class="fwrap name-suffix">
+          <select class="finput"><option value="" disabled selected></option><option>Jr.</option><option>Sr.</option><option>II</option><option>III</option><option>IV</option></select>
+          <label class="flabel">Suffix (optional)</label>
+        </div>
+      </div>
+      <div class="modal-footer-row">
+        <span class="modal-footer-note">Apply in 5 minutes, receive funding in as few as 7 days</span>
+        <button class="modal-continue-btn" onclick="showStep(5)">Continue</button>
+      </div>
+    </div>
+
+    <div class="modal-step" id="step5">
+      <div class="modal-step-header">When is your birthday?</div>
+      <p class="modal-sub" style="margin-bottom:20px;">You must be at least 18 years old to apply for a loan, or 19 years old if you reside in the state of Alabama.</p>
+      <div class="fwrap" style="max-width:220px;">
+        <input type="text" class="finput" placeholder="mm / dd / yyyy" id="dobInput" maxlength="14" oninput="formatDOB(this)" />
+        <label class="flabel">Date of birth</label>
+      </div>
+      <div class="modal-footer-row">
+        <span class="modal-footer-note">Apply in 5 minutes, receive funding in as few as 7 days</span>
+        <button class="modal-continue-btn" onclick="showStep(6)">Continue</button>
+      </div>
+    </div>
+
+    <div class="modal-step" id="step6">
+      <div class="modal-step-header">Create an account</div>
+      <p class="modal-sub" style="margin-bottom:20px;">Review the policies below and then select "Continue" to create an account and get your pre-qualification offer!</p>
+      <div class="fwrap" style="margin-bottom:12px;"><input type="email" class="finput" placeholder=" " /><label class="flabel">Email address</label></div>
+      <div class="fwrap" style="margin-bottom:20px;"><input type="tel" class="finput" placeholder=" " /><label class="flabel">Phone number</label></div>
+      <label class="consent-row">
+        <input type="checkbox" class="consent-check" />
+        <span>I agree to the <a href="#" class="consent-link">Privacy Policy</a> and <a href="#" class="consent-link">Terms of Service</a>.</span>
+      </label>
+      <label class="consent-row">
+        <input type="checkbox" class="consent-check" />
+        <span>I certify that I have read MME Home's <a href="#" class="consent-link">Electronic Communications Policy</a> and consent to receiving all legally required notices and disclosures electronically.</span>
+      </label>
+      <p class="step-note" style="margin-top:14px;">By pressing "Continue" you authorize MME Home to conduct a soft credit pre-qualification via Experian. This will not affect your credit score.</p>
+      <div class="modal-footer-row" style="margin-top:16px;">
+        <span class="modal-footer-note">Pre-qualification won't affect your credit score</span>
+        <button class="modal-continue-btn" onclick="showStep(7)">Continue</button>
+      </div>
+    </div>
+
+    <div class="modal-step" id="step7">
+      <div class="success-center">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="modal-badge" style="margin:0 auto 14px;">You're all set!</div>
+        <div class="modal-h2" style="text-align:center;">We're on it.</div>
+        <p class="modal-sub" style="text-align:center;max-width:340px;margin:0 auto 24px;">A consultant will review your details and reach out within 1 business day with personalized rate options across our lender network.</p>
+        <div style="background:var(--off-white);border-radius:12px;padding:18px 20px;text-align:left;border:1px solid var(--grey-light);">
+          <div style="font-size:0.76rem;font-weight:600;color:var(--grey-mid);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:10px;">What happens next</div>
+          <div style="font-size:0.86rem;color:var(--grey-text);line-height:1.7;">
+            &#x2713;&nbsp; A consultant reviews your profile<br>
+            &#x2713;&nbsp; We shop 100+ lenders for best fit<br>
+            &#x2713;&nbsp; You receive a clear, no-pressure comparison
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const TOTAL_STEPS = 7;
+function buildProgress(current) {
+  const wrap = document.getElementById('modalProgress');
+  wrap.innerHTML = '';
+  for (let i = 1; i <= TOTAL_STEPS; i++) {
+    const d = document.createElement('div');
+    d.className = 'progress-dot' + (i <= current ? ' active' : '');
+    wrap.appendChild(d);
+  }
+}
+function showStep(n) {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('step' + n);
+  if (el) el.classList.add('active');
+  buildProgress(n);
+  document.querySelector('.modal').scrollTop = 0;
+}
+function openModal(e, address) {
+  if (e) e.preventDefault();
+  document.getElementById('leadModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  showStep(1);
+  const addr = address && address.trim();
+  if (addr) {
+    document.getElementById('modalAddressDisplay').style.display = 'flex';
+    document.getElementById('modalAddressText').textContent = addr;
+    document.getElementById('addressFieldWrap').style.display = 'none';
+  } else {
+    document.getElementById('modalAddressDisplay').style.display = 'none';
+    document.getElementById('addressFieldWrap').style.display = 'flex';
+  }
+}
+function closeModal() {
+  document.getElementById('leadModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('leadModal')) closeModal();
+}
+function selectOcc(el) {
+  document.querySelectorAll('.occ-tile').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function selectYN(el) {
+  document.querySelectorAll('.yn-tile').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function addDollar(el) {
+  if (!el.value.startsWith('$')) el.value = '$';
+}
+function formatDOB(el) {
+  let v = el.value.replace(/[^0-9]/g, '');
+  if (v.length >= 3) v = v.slice(0,2) + ' / ' + v.slice(2);
+  if (v.length >= 9) v = v.slice(0,7) + ' / ' + v.slice(7,11);
+  el.value = v;
+}
+function selectTab(index) {
+  document.querySelectorAll('.products-tab-item').forEach((item, i) => {
+    item.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.tab-visual-panel').forEach((panel, i) => {
+    panel.classList.toggle('active', i === index);
+  });
+}
+document.getElementById('heroAddress').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') openModal(e, this.value);
+});
+</script>
+</body>
+</html>
