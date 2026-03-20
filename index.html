@@ -1340,6 +1340,50 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
   .about-cta-row { flex-direction: column; }
   .about-btn-primary, .about-btn-secondary { text-align: center; justify-content: center; }
 }
+
+/* ── ADDRESS AUTOCOMPLETE ── */
+.autocomplete-wrap { position: relative; flex: 1; min-width: 0; }
+.autocomplete-dropdown {
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+  background: var(--white); border-radius: 14px;
+  border: 1px solid var(--grey-light);
+  box-shadow: 0 8px 32px rgba(11,35,72,0.14);
+  z-index: 200; overflow: hidden; display: none;
+}
+.autocomplete-dropdown.show { display: block; }
+.autocomplete-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; cursor: pointer;
+  transition: background 0.15s; border-bottom: 1px solid var(--grey-light);
+  font-size: 0.88rem; color: var(--text);
+}
+.autocomplete-item:last-child { border-bottom: none; }
+.autocomplete-item:hover { background: var(--off-white); }
+.autocomplete-item svg { width: 14px; height: 14px; color: var(--grey-mid); flex-shrink: 0; }
+.autocomplete-item-main { font-weight: 500; color: var(--navy); }
+.autocomplete-item-sub { font-size: 0.78rem; color: var(--grey-mid); margin-top: 1px; }
+.autocomplete-loading {
+  padding: 12px 16px; font-size: 0.82rem; color: var(--grey-mid);
+  display: flex; align-items: center; gap: 8px;
+}
+/* Modal autocomplete */
+.modal-autocomplete-dropdown {
+  position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+  background: var(--white); border-radius: 12px;
+  border: 1px solid var(--grey-light);
+  box-shadow: 0 8px 24px rgba(11,35,72,0.12);
+  z-index: 500; overflow: hidden; display: none;
+}
+.modal-autocomplete-dropdown.show { display: block; }
+.modal-autocomplete-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; cursor: pointer;
+  transition: background 0.15s; border-bottom: 1px solid var(--grey-light);
+  font-size: 0.85rem; color: var(--text);
+}
+.modal-autocomplete-item:last-child { border-bottom: none; }
+.modal-autocomplete-item:hover { background: var(--off-white); }
+.modal-autocomplete-item svg { width: 13px; height: 13px; color: var(--grey-mid); flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -1394,7 +1438,10 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <div class="address-wrap-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
-        <input type="text" class="address-input" id="heroAddress" placeholder="Enter your property address&hellip;" />
+        <div class="autocomplete-wrap">
+          <input type="text" class="address-input" id="heroAddress" placeholder="Enter your property address&hellip;" autocomplete="off" />
+          <div class="autocomplete-dropdown" id="heroDropdown"></div>
+        </div>
       </div>
       <button class="address-btn" onclick="openModal(event, document.getElementById('heroAddress').value)">
         Get Estimate
@@ -1858,9 +1905,11 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
       <div class="modal-step-header">Apply in 5 minutes, 7-day closings available</div>
       <div class="form-question">What's your property address for financing?</div>
       <div class="fwrap" id="addressFieldWrap" style="margin-bottom:12px;">
-        <input type="text" class="finput" id="modalAddress" placeholder=" " />
+        <input type="text" class="finput" id="modalAddress" placeholder=" " autocomplete="off" />
         <label class="flabel">Address &mdash; Search for your address</label>
+        <div class="modal-autocomplete-dropdown" id="modalDropdown"></div>
       </div>
+      <div class="addr-error" id="addrError" style="display:none;color:#E24B4A;font-size:0.78rem;margin-bottom:8px;padding:8px 12px;background:#FFF0F0;border-radius:8px;border:1px solid #F09595;"></div>
       <div class="modal-address-tag" id="modalAddressDisplay" style="display:none;margin-bottom:12px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span id="modalAddressText"></span>
@@ -1892,7 +1941,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
       <p class="step-note">*If you have purchased your home in the last 90 days or the title was transferred in the last 90 days, eligibility may be limited.</p>
       <div class="modal-footer-row">
         <span class="modal-footer-note">Apply in 5 minutes, 7-day closings available</span>
-        <button class="modal-continue-btn" onclick="showStep(2)">Continue</button>
+        <button class="modal-continue-btn" onclick="validateAddressStep()">Continue</button>
       </div>
     </div>
 
@@ -1935,21 +1984,21 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
       <div class="income-row">
         <div>
           <div class="fwrap">
-            <input type="text" class="finput" placeholder=" " onfocus="addDollar(this)" />
+            <input type="text" class="finput" id="inputPreTaxIncome" placeholder=" " onfocus="addDollar(this)" />
             <label class="flabel">Annual pre-tax income *</label>
           </div>
           <p class="field-hint">Include bonus and all jobs</p>
         </div>
         <div>
           <div class="fwrap">
-            <input type="text" class="finput" placeholder=" " onfocus="addDollar(this)" />
+            <input type="text" class="finput" id="inputOtherIncome" placeholder=" " onfocus="addDollar(this)" />
             <label class="flabel">Other income (optional) **</label>
           </div>
           <p class="field-hint">Rental, investment, retirement, etc.</p>
         </div>
       </div>
       <div class="fwrap" style="margin-top:14px;max-width:260px;">
-        <select class="finput">
+        <select class="finput" id="inputIncomeSource">
           <option value="" disabled selected></option>
           <option>Employed (W-2)</option>
           <option>Self-employed</option>
@@ -1970,9 +2019,9 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
       <div class="modal-step-header">What is your legal name?</div>
       <p class="modal-sub" style="margin-bottom:20px;">For verification purposes, please provide your legal name as it appears on your government-issued ID.</p>
       <div class="name-grid">
-        <div class="fwrap name-first"><input type="text" class="finput" placeholder=" " /><label class="flabel">First Name</label></div>
-        <div class="fwrap name-middle"><input type="text" class="finput" placeholder=" " /><label class="flabel">Middle Name (optional)</label></div>
-        <div class="fwrap name-last"><input type="text" class="finput" placeholder=" " /><label class="flabel">Last Name</label></div>
+        <div class="fwrap name-first"><input type="text" class="finput" id="inputFirstName" placeholder=" " /><label class="flabel">First Name</label></div>
+        <div class="fwrap name-middle"><input type="text" class="finput" id="inputMiddleName" placeholder=" " /><label class="flabel">Middle Name (optional)</label></div>
+        <div class="fwrap name-last"><input type="text" class="finput" id="inputLastName" placeholder=" " /><label class="flabel">Last Name</label></div>
         <div class="fwrap name-suffix">
           <select class="finput"><option value="" disabled selected></option><option>Jr.</option><option>Sr.</option><option>II</option><option>III</option><option>IV</option></select>
           <label class="flabel">Suffix (optional)</label>
@@ -2047,37 +2096,40 @@ async function submitLead() {
   btn.textContent = 'Submitting...';
   btn.disabled = true;
 
-  // Collect all form data
-  const email = document.querySelector('#step7 input[type="email"]').value.trim();
-  const phone = document.querySelector('#step7 input[type="tel"]').value.trim();
+  // Collect all form data — mapped to correct step IDs
+  // Step 7 = Create Account (email/phone)
+  const emailInput = document.querySelector('#step7 input[type="email"]');
+  const phoneInput = document.querySelector('#step7 input[type="tel"]');
+  const email = emailInput ? emailInput.value.trim() : '';
+  const phone = phoneInput ? phoneInput.value.trim() : '';
+
+  // Step 1 = Address + Ownership
   const address = (document.getElementById('modalAddressText').textContent || 
                    document.getElementById('modalAddress').value || '').trim();
-  const ownership = (document.getElementById('ownershipType').value || '').trim();
+  const ownership = (document.getElementById('ownershipType') ? document.getElementById('ownershipType').value : '').trim();
 
-  // Legal name fields
-  const nameFields = document.querySelectorAll('#step4 .finput');
-  const firstName = nameFields[0] ? nameFields[0].value.trim() : '';
-  const middleName = nameFields[1] ? nameFields[1].value.trim() : '';
-  const lastName = nameFields[2] ? nameFields[2].value.trim() : '';
+  // Step 5 = Legal Name — using explicit IDs
+  const firstName = document.getElementById('inputFirstName') ? document.getElementById('inputFirstName').value.trim() : '';
+  const middleName = document.getElementById('inputMiddleName') ? document.getElementById('inputMiddleName').value.trim() : '';
+  const lastName = document.getElementById('inputLastName') ? document.getElementById('inputLastName').value.trim() : '';
 
-  // Income
-  const incomeFields = document.querySelectorAll('#step3 .finput');
-  const preTaxIncome = incomeFields[0] ? incomeFields[0].value.trim() : '';
-  const otherIncome = incomeFields[1] ? incomeFields[1].value.trim() : '';
-  const incomeSource = incomeFields[2] ? incomeFields[2].value.trim() : '';
+  // Step 4 = Income — using explicit IDs
+  const preTaxIncome = document.getElementById('inputPreTaxIncome') ? document.getElementById('inputPreTaxIncome').value.trim() : '';
+  const otherIncome = document.getElementById('inputOtherIncome') ? document.getElementById('inputOtherIncome').value.trim() : '';
+  const incomeSource = document.getElementById('inputIncomeSource') ? document.getElementById('inputIncomeSource').value.trim() : '';
 
-  // DOB
+  // Step 6 = DOB
   const dob = document.getElementById('dobInput') ? document.getElementById('dobInput').value.trim() : '';
 
-  // Occupancy
+  // Step 1 = Occupancy tiles
   const occSelected = document.querySelector('.occ-tile.selected');
   const occupancy = occSelected ? occSelected.textContent.trim() : '';
 
-  // For sale
+  // Step 2 = For sale
   const forSaleSelected = document.querySelector('#step2 .yn-tile.selected');
   const forSale = forSaleSelected ? forSaleSelected.textContent.trim() : '';
 
-  // Mortgage lates
+  // Step 3 = Mortgage lates
   const latesSelected = document.querySelector('#latesYN .yn-tile.selected');
   const mortgageLates = latesSelected ? latesSelected.textContent.trim() : '';
 
@@ -2110,16 +2162,18 @@ async function submitLead() {
     // Build Bonzo-formatted payload matching exact field names
     const today = new Date().toISOString().split('T')[0];
 
-    // Parse address into parts if possible
+    // Parse address into parts — handle "123 Main St, City, CA 90210" format
     const addrParts = address.split(',').map(s => s.trim());
     const streetAddr = addrParts[0] || address;
     const cityPart = addrParts[1] || '';
-    const stateZip = (addrParts[2] || '').trim().split(' ');
-    const statePart = stateZip[0] || 'CA';
-    const zipPart = stateZip[1] || '';
+    const stateZipRaw = (addrParts[2] || '').trim();
+    // stateZipRaw could be "CA 90210" or just a zip
+    const stateZipMatch = stateZipRaw.match(/^([A-Za-z]{2})\s*(\d{5})?$/) || [];
+    const statePart = stateZipMatch[1] || 'CA';
+    const zipPart = stateZipMatch[2] || stateZipRaw.match(/\d{5}/)?.[0] || '';
+    // Clean phone — digits only, max 10
+    const cleanPhone = phone.replace(/\D/g, '').slice(-10);
 
-    // Clean phone — digits only
-    const cleanPhone = phone.replace(/\D/g, '');
 
     const bonzoPayload = {
       first_name: firstName || '',
@@ -2281,6 +2335,160 @@ function calcDTI() {
   else if (backEnd <= 50) verdict = 'Fair — FHA or alternative programs may apply';
   else verdict = 'High — consider DSCR or reducing debts first';
   document.getElementById('d-verdict').textContent = verdict;
+}
+
+
+// ── ADDRESS AUTOCOMPLETE (Nominatim / OpenStreetMap - free, no API key) ──
+let acTimer = null;
+
+function addressAutoComplete(inputId, dropdownId, isModal) {
+  const input = document.getElementById(inputId);
+  const dropdown = document.getElementById(dropdownId);
+  if (!input || !dropdown) return;
+
+  input.addEventListener('input', function() {
+    clearTimeout(acTimer);
+    const val = this.value.trim();
+    if (val.length < 3) { dropdown.classList.remove('show'); return; }
+
+    dropdown.innerHTML = '<div class="autocomplete-loading"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Searching addresses...</div>';
+    dropdown.classList.add('show');
+
+    acTimer = setTimeout(async () => {
+      try {
+        const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(val)}&format=json&addressdetails=1&limit=5&countrycodes=us`;
+        const res = await fetch(url, {
+          headers: { 'Accept-Language': 'en-US', 'User-Agent': 'MMEHome/1.0' }
+        });
+        const results = await res.json();
+
+        if (!results.length) {
+          dropdown.innerHTML = '<div class="autocomplete-loading">No results found. Try a different address.</div>';
+          return;
+        }
+
+        const itemClass = isModal ? 'modal-autocomplete-item' : 'autocomplete-item';
+        dropdown.innerHTML = results.map(r => {
+          const addr = r.address;
+          const house = addr.house_number || '';
+          const road = addr.road || '';
+          const city = addr.city || addr.town || addr.village || addr.county || '';
+          const state = addr.state || '';
+          const zip = addr.postcode || '';
+          const mainLine = [house, road].filter(Boolean).join(' ') || r.display_name.split(',')[0];
+          const subLine = [city, state, zip].filter(Boolean).join(', ');
+          const full = r.display_name;
+
+          return `<div class="${itemClass}" onclick="selectAddress('${inputId}','${dropdownId}','${full.replace(/'/g,"\'")}','${isModal}')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="${isModal ? '' : 'autocomplete-item-main'}" style="font-weight:500;color:var(--navy)">${mainLine}</div>
+              <div class="${isModal ? '' : 'autocomplete-item-sub'}" style="font-size:0.75rem;color:var(--grey-mid)">${subLine}</div>
+            </div>
+          </div>`;
+        }).join('');
+
+      } catch(e) {
+        dropdown.innerHTML = '<div class="autocomplete-loading">Search unavailable. Please type your address manually.</div>';
+      }
+    }, 400);
+  });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') dropdown.classList.remove('show');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
+}
+
+function selectAddress(inputId, dropdownId, fullAddress, isModal) {
+  const input = document.getElementById(inputId);
+  const dropdown = document.getElementById(dropdownId);
+  // Clean up Nominatim display_name — remove country, keep US-relevant parts
+  const parts = fullAddress.split(',').map(s => s.trim()).filter(s => s !== 'United States');
+  const cleanAddr = parts.slice(0, 4).join(', ');
+  input.value = cleanAddr;
+  dropdown.classList.remove('show');
+  // Trigger input event for floating label
+  input.dispatchEvent(new Event('input'));
+}
+
+// Initialize both address fields
+document.addEventListener('DOMContentLoaded', function() {
+  addressAutoComplete('heroAddress', 'heroDropdown', false);
+  addressAutoComplete('modalAddress', 'modalDropdown', true);
+});
+
+
+// ── ADDRESS VALIDATION ──
+function validateAddressStep() {
+  const addrInput = document.getElementById('modalAddress');
+  const addrDisplay = document.getElementById('modalAddressText');
+  const errorBox = document.getElementById('addrError');
+  const ownershipEl = document.getElementById('ownershipType');
+  const occSelected = document.querySelector('.occ-tile.selected');
+
+  const addrValue = (addrDisplay && addrDisplay.textContent.trim()) ||
+                    (addrInput && addrInput.value.trim()) || '';
+
+  // Clear previous error
+  errorBox.style.display = 'none';
+  errorBox.textContent = '';
+
+  // 1. Address must not be empty
+  if (!addrValue) {
+    showAddrError('Please enter your property address to continue.');
+    if (addrInput) addrInput.focus();
+    return;
+  }
+
+  // 2. Must contain a number (street number required)
+  if (!/\d/.test(addrValue)) {
+    showAddrError('Please include a street number (e.g. 123 Main St, Irvine, CA).');
+    if (addrInput) addrInput.focus();
+    return;
+  }
+
+  // 3. Must be at least 10 characters
+  if (addrValue.length < 10) {
+    showAddrError('Address seems too short. Please enter a full street address.');
+    if (addrInput) addrInput.focus();
+    return;
+  }
+
+  // 4. Must not be just numbers
+  if (/^\d+$/.test(addrValue)) {
+    showAddrError('Please enter a full address including street name and city.');
+    if (addrInput) addrInput.focus();
+    return;
+  }
+
+  // 5. Ownership type required
+  if (!ownershipEl || !ownershipEl.value) {
+    showAddrError('Please select an ownership type before continuing.');
+    ownershipEl && ownershipEl.focus();
+    return;
+  }
+
+  // 6. Occupancy type required
+  if (!occSelected) {
+    showAddrError('Please select a property type (Primary, Secondary, or Investment).');
+    return;
+  }
+
+  // All good — proceed
+  showStep(2);
+}
+
+function showAddrError(msg) {
+  const errorBox = document.getElementById('addrError');
+  errorBox.textContent = '⚠ ' + msg;
+  errorBox.style.display = 'block';
+  errorBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 window.addEventListener('scroll', () => {
