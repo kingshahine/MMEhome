@@ -2112,13 +2112,60 @@ async function submitLead() {
   const BONZO_WEBHOOK = 'https://app.getbonzo.com/api/webhook/92f320ebcd9163f70b63a6537a92e7d6';
 
   try {
-    // Send to Bonzo
-    await fetch(BONZO_WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(bonzoData),
-      mode: 'no-cors' // Bonzo webhooks don't send CORS headers
-    });
+    // Build Bonzo-formatted payload matching exact field names
+    const today = new Date().toISOString().split('T')[0];
+
+    // Parse address into parts if possible
+    const addrParts = address.split(',').map(s => s.trim());
+    const streetAddr = addrParts[0] || address;
+    const cityPart = addrParts[1] || '';
+    const stateZip = (addrParts[2] || '').trim().split(' ');
+    const statePart = stateZip[0] || 'CA';
+    const zipPart = stateZip[1] || '';
+
+    // Clean phone — digits only
+    const cleanPhone = phone.replace(/\D/g, '');
+
+    const bonzoPayload = {
+      first_name: firstName || '',
+      last_name: lastName || '',
+      email: email || '',
+      phone: cleanPhone || '',
+      address: streetAddr || '',
+      city: cityPart || '',
+      state: statePart || 'CA',
+      zip: zipPart || '',
+      company_name: null,
+      loan_amount: null,
+      down_payment: null,
+      loan_program: null,
+      credit_score: null,
+      loan_type: null,
+      loan_purpose: null,
+      interest_rate: null,
+      purchase_price: null,
+      cash_out_amount: null,
+      application_date: today,
+      property_type: null,
+      property_use: bonzoData.custom_fields.occupancy_type || null,
+      property_value: null,
+      property_address: address || null,
+      property_city: cityPart || null,
+      property_state: statePart || 'CA',
+      property_zip: zipPart || null,
+      property_county: null,
+      prospect_company: null,
+      foreclosure: bonzoData.custom_fields.mortgage_lates === 'Yes' ? 'yes' : null,
+      bankruptcy: null,
+      lead_source: 'MME Home Website',
+      field_1: bonzoData.custom_fields.ownership_type || null,
+      field_2: bonzoData.custom_fields.income_source || null,
+      field_3: bonzoData.custom_fields.pre_tax_income || null
+    };
+
+    // Send via sendBeacon — bypasses CORS, guaranteed delivery
+    const blob = new Blob([JSON.stringify(bonzoPayload)], { type: 'application/json' });
+    navigator.sendBeacon(BONZO_WEBHOOK, blob);
 
     // Also send to email backup via mailto fallback stored in sessionStorage
     sessionStorage.setItem('mme_last_lead', JSON.stringify({
