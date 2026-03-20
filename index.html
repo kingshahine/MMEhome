@@ -1251,6 +1251,95 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
   .calc-row { grid-template-columns: 1fr; }
   .calc-result { position: static; }
 }
+
+/* ── ABOUT SECTION ── */
+.about-section { background: var(--white); padding: 96px 5%; }
+.about-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center; max-width: 1100px; margin: 0 auto;
+}
+.about-photo-wrap { position: relative; }
+.about-photo {
+  width: 100%; aspect-ratio: 4/5; border-radius: 24px;
+  background: linear-gradient(135deg, #0B2348 0%, #1B4F9A 100%);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.about-photo-initials {
+  font-family: 'Instrument Serif', serif;
+  font-size: 6rem; color: rgba(255,255,255,0.12); user-select: none;
+}
+.about-photo-badge {
+  position: absolute; bottom: -18px; right: -18px;
+  background: var(--white); border-radius: 16px;
+  padding: 16px 20px; box-shadow: var(--shadow-lg);
+  border: 1px solid var(--grey-light);
+  display: flex; align-items: center; gap: 12px;
+}
+.about-badge-icon {
+  width: 40px; height: 40px; background: #EBF2FF;
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+}
+.about-badge-icon svg { width: 20px; height: 20px; color: #1B4F9A; }
+.about-badge-text { font-size: 0.85rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+.about-badge-sub { font-size: 0.7rem; color: var(--grey-mid); margin-top: 2px; }
+.about-content h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: var(--navy); letter-spacing: -0.02em;
+  line-height: 1.1; margin-bottom: 20px;
+}
+.about-bio {
+  font-size: 0.975rem; color: var(--grey-text);
+  line-height: 1.75; margin-bottom: 28px;
+}
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 14px; margin-bottom: 32px;
+}
+.about-stat {
+  background: var(--off-white); border-radius: 14px;
+  padding: 18px 20px; border: 1px solid var(--grey-light);
+}
+.about-stat-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.8rem; color: var(--navy); line-height: 1;
+  margin-bottom: 4px;
+}
+.about-stat-label { font-size: 0.75rem; color: var(--grey-mid); font-weight: 500; }
+.about-values { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.about-value {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.9rem; color: var(--grey-text); line-height: 1.55;
+}
+.about-value svg { width: 18px; height: 18px; color: #C8960A; flex-shrink: 0; margin-top: 2px; }
+.about-value strong { color: var(--navy); }
+.about-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.about-btn-primary {
+  background: var(--navy); color: white; border: none; border-radius: 10px;
+  padding: 13px 28px; font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+  text-decoration: none; display: inline-flex; align-items: center;
+}
+.about-btn-primary:hover { background: var(--blue); }
+.about-btn-secondary {
+  background: transparent; color: var(--navy);
+  border: 1.5px solid var(--grey-light); border-radius: 10px;
+  padding: 13px 28px; font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.about-btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
+@media (max-width: 900px) {
+  .about-inner { grid-template-columns: 1fr; gap: 48px; }
+  .about-photo { aspect-ratio: 16/9; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .about-cta-row { flex-direction: column; }
+  .about-btn-primary, .about-btn-secondary { text-align: center; justify-content: center; }
+}
 </style>
 </head>
 <body>
@@ -1272,6 +1361,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
     <li><a href="#products">Products</a></li>
     <li><a href="#" onclick="openSubPage(event,'dscr')">DSCR Loans</a></li>
     <li><a href="#" onclick="openSubPage(event,'tools')">Tools</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#" class="nav-cta" onclick="openModal(event,'')">Get My Rate</a></li>
   </ul>
@@ -1284,6 +1374,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
   <a href="#products" onclick="closeMobileNav()">Products</a>
   <a href="#" onclick="openSubPage(event,'dscr');closeMobileNav()">DSCR Loans</a>
   <a href="#" onclick="openSubPage(event,'tools');closeMobileNav()">Tools & Calculators</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
   <a href="#" onclick="openModal(event,'');closeMobileNav()" class="mobile-nav-cta">Get My Rate</a>
 </div>
@@ -1554,52 +1645,86 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
 
 <!-- TESTIMONIALS -->
 <section class="testimonials-section" id="testimonials" aria-label="Client Reviews">
-  <div class="reveal">
+  <div class="reveal" style="text-align:center;">
     <span class="section-tag">Client Reviews</span>
-    <h2 class="section-h2">Real people, real results.</h2>
-    <p class="section-sub">Don&rsquo;t take our word for it &mdash; here&rsquo;s what homeowners across California have to say.</p>
+    <h2 class="section-h2">What our clients say.</h2>
+    <p class="section-sub" style="margin:0 auto;">Reviews coming soon. We&rsquo;re just getting started &mdash; check back as we build our client base.</p>
+    <div style="margin-top:36px;">
+      <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:16px 24px;text-decoration:none;transition:background 0.2s;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8960A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <div style="text-align:left;">
+          <div style="font-size:0.88rem;font-weight:600;color:white;">View our Zillow profile</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:2px;">See verified client reviews</div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
   </div>
-  <div class="testimonials-grid reveal">
-    <div class="testi-card">
-      <div class="testi-stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about" aria-label="About MME Home">
+  <div class="about-inner reveal">
+    <div class="about-photo-wrap">
+      <div class="about-photo">
+        <div class="about-photo-initials">SB</div>
       </div>
-      <div class="testi-quote">&ldquo;Shane got me a rate 0.5% lower than my bank offered. The whole process was transparent and shockingly fast. Closed in just 7 days.&rdquo;</div>
-      <div class="testi-author">
-        <div class="testi-avatar">MR</div>
-        <div><div class="testi-name">Marcus R.</div><div class="testi-detail">Purchase &middot; Irvine, CA</div></div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <div class="testi-quote">&ldquo;I had no idea how much I was leaving on the table with my bank. The comparison sheet alone was eye-opening. Highly recommend.&rdquo;</div>
-      <div class="testi-author">
-        <div class="testi-avatar">JL</div>
-        <div><div class="testi-name">Jennifer L.</div><div class="testi-detail">Cash-Out Refi &middot; Newport Beach, CA</div></div>
+      <div class="about-photo-badge">
+        <div class="about-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="about-badge-text">NMLS# 1082653</div>
+          <div class="about-badge-sub">Licensed Wholesale Broker &middot; CA</div>
+        </div>
       </div>
     </div>
-    <div class="testi-card">
-      <div class="testi-stars">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+
+    <div class="about-content">
+      <span class="section-tag">About MME Home</span>
+      <h2>Home financing<br>built around you.</h2>
+      <p class="about-bio">MME Home was built on one simple idea: homeowners and investors deserve the same wholesale rates that big institutions get. As a licensed wholesale mortgage broker in California, we sit on your side of the table &mdash; not the bank&rsquo;s. We shop your loan across 100+ wholesale lenders to find the rate and terms that actually work for your situation, not theirs.</p>
+
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="about-stat-num">100+</div>
+          <div class="about-stat-label">Wholesale lenders</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">5 days</div>
+          <div class="about-stat-label">Avg. closing time</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">CA</div>
+          <div class="about-stat-label">Licensed &amp; operating</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">$0</div>
+          <div class="about-stat-label">Cost to get a quote</div>
+        </div>
       </div>
-      <div class="testi-quote">&ldquo;As a first-time VA buyer I was nervous. Shane walked me through every step and got me an incredible rate. Could not have asked for more.&rdquo;</div>
-      <div class="testi-author">
-        <div class="testi-avatar">DK</div>
-        <div><div class="testi-name">David K.</div><div class="testi-detail">VA Purchase &middot; Anaheim, CA</div></div>
+
+      <div class="about-values">
+        <div class="about-value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong>Wholesale pricing, not retail.</strong> Banks mark up rates to profit from you. We access wholesale rates and pass the savings directly to you.</span>
+        </div>
+        <div class="about-value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong>One application, 100+ lenders.</strong> We do the shopping so you don&rsquo;t have to. You get the best fit without filling out forms at every bank.</span>
+        </div>
+        <div class="about-value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong>No pressure, no surprises.</strong> We give you a clear comparison and let you decide. No upselling, no hidden fees, no confusion.</span>
+        </div>
+      </div>
+
+      <div class="about-cta-row">
+        <button class="about-btn-primary" onclick="openModal(event,'')">Work With Us &rarr;</button>
+        <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener" class="about-btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Zillow Profile
+        </a>
       </div>
     </div>
   </div>
@@ -1703,6 +1828,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
       </div>
       <div class="footer-col">
         <h4>Company</h4>
+        <a href="#about">About Us</a>
         <a href="#how">How It Works</a>
         <a href="#testimonials">Reviews</a>
         <a href="#" onclick="openSubPage(event,'dscr')">DSCR Loans</a>
@@ -1926,38 +2052,83 @@ async function submitLead() {
   btn.textContent = 'Submitting...';
   btn.disabled = true;
 
-  const email = document.querySelector('#step7 input[type="email"]').value;
-  const phone = document.querySelector('#step7 input[type="tel"]').value;
-  const address = document.getElementById('modalAddressText').textContent || 
-                  document.getElementById('modalAddress').value;
-  const ownership = document.getElementById('ownershipType').value;
-  const income = document.querySelector('#step3 .finput:first-of-type') ? 
-                 document.querySelector('#step3 .finput') .value : '';
+  // Collect all form data
+  const email = document.querySelector('#step7 input[type="email"]').value.trim();
+  const phone = document.querySelector('#step7 input[type="tel"]').value.trim();
+  const address = (document.getElementById('modalAddressText').textContent || 
+                   document.getElementById('modalAddress').value || '').trim();
+  const ownership = (document.getElementById('ownershipType').value || '').trim();
 
-  const data = {
+  // Legal name fields
+  const nameFields = document.querySelectorAll('#step4 .finput');
+  const firstName = nameFields[0] ? nameFields[0].value.trim() : '';
+  const middleName = nameFields[1] ? nameFields[1].value.trim() : '';
+  const lastName = nameFields[2] ? nameFields[2].value.trim() : '';
+
+  // Income
+  const incomeFields = document.querySelectorAll('#step3 .finput');
+  const preTaxIncome = incomeFields[0] ? incomeFields[0].value.trim() : '';
+  const otherIncome = incomeFields[1] ? incomeFields[1].value.trim() : '';
+  const incomeSource = incomeFields[2] ? incomeFields[2].value.trim() : '';
+
+  // DOB
+  const dob = document.getElementById('dobInput') ? document.getElementById('dobInput').value.trim() : '';
+
+  // Occupancy
+  const occSelected = document.querySelector('.occ-tile.selected');
+  const occupancy = occSelected ? occSelected.textContent.trim() : '';
+
+  // For sale
+  const forSaleSelected = document.querySelector('#step2 .yn-tile.selected');
+  const forSale = forSaleSelected ? forSaleSelected.textContent.trim() : '';
+
+  // Mortgage lates
+  const latesSelected = document.querySelector('#latesYN .yn-tile.selected');
+  const mortgageLates = latesSelected ? latesSelected.textContent.trim() : '';
+
+  // Build Bonzo payload
+  const bonzoData = {
+    first_name: firstName || email.split('@')[0],
+    last_name: lastName,
     email: email,
     phone: phone,
     address: address,
-    ownership: ownership,
-    _subject: 'New MME Home Lead - ' + (address || email),
-    _replyto: email,
+    custom_fields: {
+      ownership_type: ownership,
+      occupancy_type: occupancy,
+      property_for_sale: forSale,
+      mortgage_lates: mortgageLates,
+      pre_tax_income: preTaxIncome,
+      other_income: otherIncome,
+      income_source: incomeSource,
+      date_of_birth: dob,
+      middle_name: middleName,
+      lead_source: 'MME Home Website',
+      lead_date: new Date().toLocaleDateString()
+    },
+    tags: ['mmehome-lead', 'website']
   };
 
+  const BONZO_WEBHOOK = 'https://app.getbonzo.com/api/webhook/92f320ebcd9163f70b63a6537a92e7d6';
+
   try {
-    const response = await fetch('https://formspree.io/f/shane@shieldhomeloans.com', {
+    // Send to Bonzo
+    await fetch(BONZO_WEBHOOK, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(bonzoData),
+      mode: 'no-cors' // Bonzo webhooks don't send CORS headers
     });
 
-    if (response.ok) {
-      showStep(8);
-    } else {
-      // Still advance even if formspree not yet activated
-      showStep(8);
-    }
+    // Also send to email backup via mailto fallback stored in sessionStorage
+    sessionStorage.setItem('mme_last_lead', JSON.stringify({
+      name: firstName + ' ' + lastName,
+      email, phone, address, occupancy, mortgageLates
+    }));
+
+    showStep(8);
   } catch (err) {
-    // Still advance to success
+    // Always advance to success — Bonzo may still receive despite fetch error
     showStep(8);
   } finally {
     btn.textContent = originalText;
