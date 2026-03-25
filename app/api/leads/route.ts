@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 
 export async function GET(request: NextRequest) {
   // Verify admin auth
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
   const authCookie = cookieStore.get('admin_auth')
   if (authCookie?.value !== process.env.ADMIN_PASSWORD) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
