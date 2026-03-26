@@ -1,0 +1,10 @@
+{
+    "buildCommand": "",
+    "outputDirectory": ".",
+    "framework": null,
+    "rewrites": [
+          { "source": "/dscr", "destination": "/dscr.html" },
+          { "source": "/heloc", "destination": "/heloc.html" },
+          { "source": "/lending", "destination": "/lending.html" }
+    ]
+}
