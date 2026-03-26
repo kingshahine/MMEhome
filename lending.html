@@ -210,19 +210,18 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
   </a>
   <ul class="nav-links">
     <li><a href="index.html#products">Products</a></li>
-    <li><a href="dscr.html">DSCR Loans</a></li>
-    <li><a href="heloc.html">HELOC</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#testimonials">Reviews</a></li>
-    <li><a href="#" class="nav-cta" onclick="openModal('')" style="border:none">Get My Rate</a></li>
+    <li><a href="#" class="nav-cta" style="border:none" onclick="openModal('')">Get My Rate</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileDrawer').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="index.html#products" onclick="document.getElementById('mobileDrawer').classList.remove('open')">Products</a>
-  <a href="dscr.html" onclick="document.getElementById('mobileDrawer').classList.remove('open')">DSCR Loans</a>
-  <a href="heloc.html" onclick="document.getElementById('mobileDrawer').classList.remove('open')">HELOC</a>
   <a href="index.html#about" onclick="document.getElementById('mobileDrawer').classList.remove('open')">About</a>
+  <a href="index.html#testimonials" onclick="document.getElementById('mobileDrawer').classList.remove('open')">Reviews</a>
   <a href="#" onclick="openModal('');document.getElementById('mobileDrawer').classList.remove('open')" style="background:#0B2348;color:white;border-radius:10px;text-align:center;font-weight:600">Get My Rate &rarr;</a>
 </div>
 
@@ -398,7 +397,7 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <button onclick="openModal('')" style="background:#0B2348;color:white;border:none;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif">Get My Free Rate Quote</button>
-          <a href="mailto:shane@shieldhomeloans.com" style="background:transparent;color:#0B2348;border:1.5px solid #0B2348;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center">Contact Us</a>
+          <a href="/cdn-cgi/l/email-protection#483b2029262d083b20212d242c2027252d242729263b662b2725" style="background:transparent;color:#0B2348;border:1.5px solid #0B2348;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center">Contact Us</a>
         </div>
       </div>
     </div>
@@ -571,7 +570,7 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
     </div>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var currentStep = 1;
 function openModal(addr) {
   if(addr) document.getElementById('modalAddress').value = addr;
@@ -679,6 +678,4 @@ var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if
 document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
 // FAQ
 document.querySelectorAll('.faq-q').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    var isOpen=btn.classList.contains('open');
-    document.querySelectorAll('.faq-q').forEach(function(b){b.classList.remove('open');va
+  btn.addEventListener(

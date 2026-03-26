@@ -1391,21 +1391,14 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">
+  <a class="nav-logo" href="index.html">
     <div class="nav-logo-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      </svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     </div>
-    <div class="nav-logo-text">
-      MME Home
-      <span>Wholesale Mortgage Broker</span>
-    </div>
+    <div class="nav-logo-text">MME Home <span>Making Mortgage Easy</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
-    <li><a href="#" onclick="openSubPage(event,'dscr')">DSCR Loans</a></li>
-    <li><a href="#" onclick="openSubPage(event,'tools')">Tools</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#" class="nav-cta" onclick="openModal(event,'')">Get My Rate</a></li>
@@ -1414,11 +1407,8 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
     <span></span><span></span><span></span>
   </button>
 </nav>
-<!-- Mobile Nav Drawer -->
 <div class="mobile-nav-drawer" id="mobileNavDrawer">
   <a href="#products" onclick="closeMobileNav()">Products</a>
-  <a href="#" onclick="openSubPage(event,'dscr');closeMobileNav()">DSCR Loans</a>
-  <a href="#" onclick="openSubPage(event,'tools');closeMobileNav()">Tools & Calculators</a>
   <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#testimonials" onclick="closeMobileNav()">Reviews</a>
   <a href="#" onclick="openModal(event,'');closeMobileNav()" class="mobile-nav-cta">Get My Rate</a>
@@ -1736,7 +1726,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <button onclick="openModal(event,'')" style="background:#0B2348;color:white;border:none;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif">Get My Free Rate Quote</button>
-          <a href="mailto:shane@shieldhomeloans.com" style="background:transparent;color:#0B2348;border:1.5px solid #0B2348;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center">Contact Us</a>
+          <a href="/cdn-cgi/l/email-protection#b5c6ddd4dbd0f5c6dddcd0d9d1dddad8d0d9dad4dbc69bd6dad8" style="background:transparent;color:#0B2348;border:1.5px solid #0B2348;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center">Contact Us</a>
         </div>
       </div>
     </div>
@@ -2060,7 +2050,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Formspree lead submission
 
 function validateAndSubmit() {
@@ -3134,11 +3124,4 @@ function handlePageOverlayClick(e) {
           <div class="calc-breakdown-row"><span>FHA Max</span><span>57%</span></div>
           <div class="calc-breakdown-row"><span>DSCR Loans</span><span>No DTI limit</span></div>
         </div>
-        <button class="calc-cta" onclick="closeSubPage();setTimeout(()=>openModal(null,''),300)">Talk to a Consultant &rarr;</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-</body>
-</html>
+        <button class="calc-cta" on

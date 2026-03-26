@@ -210,19 +210,18 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
   </a>
   <ul class="nav-links">
     <li><a href="index.html#products">Products</a></li>
-    <li><a href="dscr.html">DSCR Loans</a></li>
-    <li><a href="heloc.html">HELOC</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#testimonials">Reviews</a></li>
-    <li><a href="#" class="nav-cta" onclick="openModal('')" style="border:none">Get My Rate</a></li>
+    <li><a href="#" class="nav-cta" style="border:none" onclick="openModal('')">Get My Rate</a></li>
   </ul>
-  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileDrawer').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 <div class="mobile-drawer" id="mobileDrawer">
   <a href="index.html#products" onclick="document.getElementById('mobileDrawer').classList.remove('open')">Products</a>
-  <a href="dscr.html" onclick="document.getElementById('mobileDrawer').classList.remove('open')">DSCR Loans</a>
-  <a href="heloc.html" onclick="document.getElementById('mobileDrawer').classList.remove('open')">HELOC</a>
   <a href="index.html#about" onclick="document.getElementById('mobileDrawer').classList.remove('open')">About</a>
+  <a href="index.html#testimonials" onclick="document.getElementById('mobileDrawer').classList.remove('open')">Reviews</a>
   <a href="#" onclick="openModal('');document.getElementById('mobileDrawer').classList.remove('open')" style="background:#0B2348;color:white;border-radius:10px;text-align:center;font-weight:600">Get My Rate &rarr;</a>
 </div>
 
@@ -417,7 +416,7 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
         <a href="index.html#about">About Us</a>
         <a href="index.html#products">How It Works</a>
         <a href="index.html#testimonials">Reviews</a>
-        <a href="mailto:shane@shieldhomeloans.com">Contact</a>
+        <a href="/cdn-cgi/l/email-protection#d8abb0b9b6bd98abb0b1bdb4bcb0b7b5bdb4b7b9b6abf6bbb7b5">Contact</a>
       </div>
     </div>
   </div>
@@ -554,7 +553,7 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
     </div>
   </div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var currentStep = 1;
 function openModal(addr) {
   if(addr) document.getElementById('modalAddress').value = addr;
@@ -664,10 +663,4 @@ document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
 document.querySelectorAll('.faq-q').forEach(function(btn){
   btn.addEventListener('click',function(){
     var isOpen=btn.classList.contains('open');
-    document.querySelectorAll('.faq-q').forEach(function(b){b.classList.remove('open');var a=b.nextElementSibling;if(a)a.classList.remove('open');});
-    if(!isOpen){btn.classList.add('open');var ans=btn.nextElementSibling;if(ans)ans.classList.add('open');}
-  });
-});
-</script>
-</body>
-</html>
+    document.querySelectorAll('.faq-q').forEach(function(b){b.classList.remove('open');var a=b.nextElementSibling;if(a)a.classList.remove
