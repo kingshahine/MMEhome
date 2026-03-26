@@ -1430,7 +1430,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <div class="autocomplete-wrap">
-          <input type="text" class="address-input" id="heroAddress" placeholder="Enter your property address&hellip;" autocomplete="off" />
+          <input type="text" class="address-input" id="heroAddress" placeholder="Start typing your address..." autocomplete="off" />
           <div class="autocomplete-dropdown" id="heroDropdown"></div>
         </div>
       </div>
@@ -1465,7 +1465,10 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Access to 100+ wholesale lenders for the best available rate</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Use funds for renovations, debt consolidation, investments &amp; more</li>
       </ul>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
       <button class="heloc-btn" onclick="openModal(event,'')">Get started</button>
+      <a href="heloc.html" style="color:rgba(255,255,255,0.7);font-size:0.88rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
     </div>
     <div class="heloc-callout-right">
       <div class="heloc-phone-card">
@@ -1499,6 +1502,60 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
 </div>
 
 <!-- PRODUCTS -->
+
+<!-- FEATURED LOAN PAGES -->
+<section style="padding:64px 5%;background:var(--off-white)">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-tag">Deep dives</div>
+    <h2 class="section-h2">Explore our most popular products</h2>
+    <p style="font-size:0.975rem;color:var(--grey-text);line-height:1.65;max-width:540px;margin-bottom:36px">Get the full picture on our two most-requested loan types — complete with calculators, eligibility guides, and FAQs.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+
+      <!-- HELOC Card -->
+      <div style="background:white;border-radius:20px;border:1px solid var(--grey-light);overflow:hidden;transition:box-shadow 0.25s,transform 0.25s" onmouseover="this.style.boxShadow='0 20px 60px rgba(11,35,72,0.13)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
+        <div style="background:linear-gradient(135deg,#0B2348 0%,#1B4F9A 100%);padding:28px 28px 20px">
+          <div style="display:inline-flex;align-items:center;background:#C8960A;color:#0B2348;padding:4px 12px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:14px">Most Popular</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-size:1.8rem;color:white;line-height:1.1;margin-bottom:8px">HELOC</h3>
+          <p style="font-size:0.855rem;color:rgba(255,255,255,0.65);line-height:1.6">Tap your home equity without refinancing. Keep your existing mortgage rate. Close in as few as 5 days.</p>
+        </div>
+        <div style="padding:24px 28px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Max line</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">$500K</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Max CLTV</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">90%</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Fastest close</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">5 days</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Draw period</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">10 yrs</div></div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button onclick="openModal(event,'')" style="flex:1;background:#0B2348;color:white;border:none;border-radius:10px;padding:12px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Get My Rate</button>
+            <a href="heloc.html" style="flex:1;background:transparent;color:var(--navy);border:1.5px solid var(--grey-light);border-radius:10px;padding:12px;font-size:0.88rem;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;transition:border-color 0.2s" onmouseover="this.style.borderColor='#0B2348'" onmouseout="this.style.borderColor='var(--grey-light)'">Full guide &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DSCR Card -->
+      <div style="background:white;border-radius:20px;border:1px solid var(--grey-light);overflow:hidden;transition:box-shadow 0.25s,transform 0.25s" onmouseover="this.style.boxShadow='0 20px 60px rgba(11,35,72,0.13)';this.style.transform='translateY(-4px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
+        <div style="background:linear-gradient(135deg,#163660 0%,#0B2348 100%);padding:28px 28px 20px">
+          <div style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);padding:4px 12px;border-radius:100px;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:14px">For Investors</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-size:1.8rem;color:white;line-height:1.1;margin-bottom:8px">DSCR Loans</h3>
+          <p style="font-size:0.855rem;color:rgba(255,255,255,0.65);line-height:1.6">Qualify on rental income alone. No W2s, no tax returns. Built for real estate investors scaling their portfolio.</p>
+        </div>
+        <div style="padding:24px 28px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Loan amount</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">Up to $3M</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Income docs</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">None</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Min DSCR</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">1.0</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">LLC allowed</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">Yes</div></div>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button onclick="openModal(event,'')" style="flex:1;background:#0B2348;color:white;border:none;border-radius:10px;padding:12px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">Get My Rate</button>
+            <a href="dscr.html" style="flex:1;background:transparent;color:var(--navy);border:1.5px solid var(--grey-light);border-radius:10px;padding:12px;font-size:0.88rem;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;transition:border-color 0.2s" onmouseover="this.style.borderColor='#0B2348'" onmouseout="this.style.borderColor='var(--grey-light)'">Full guide &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <section class="products-tab-section" id="products" aria-label="Loan Products">
   <div class="reveal" style="text-align:center;margin-bottom:56px;">
     <span class="section-tag">Loan Products</span>
@@ -1834,7 +1891,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <a href="#about">About Us</a>
         <a href="#how">How It Works</a>
         <a href="#testimonials">Reviews</a>
-        <a href="#" onclick="openSubPage(event,'dscr')">DSCR Loans</a>
+        <a href="#" href="dscr.html">DSCR Loans</a>
         <a href="#" onclick="openSubPage(event,'tools')">Tools &amp; Calculators</a>
         <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener">Zillow Profile</a>
         <a href="#">Contact</a>
