@@ -596,7 +596,8 @@ footer { background: #0B2348; border-top: 1px solid rgba(255,255,255,0.08); padd
   .hero-h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
   .hero-stats { gap: 16px; flex-wrap: wrap; justify-content: center; }
   .stat-divider { display: none; }
-  .search-card { border-radius: 16px; padding: 12px; }
+  .search-card { border-radius: 16px; padding: 12px; flex-direction: column; }
+  .address-btn { width: 100%; justify-content: center; border-radius: 10px; padding: 14px; margin-top: 4px; }
   .address-input { font-size: 16px; } /* prevents iOS zoom */
   .trust-logos { gap: 16px; }
   .trust-logo { font-size: 0.72rem; }
@@ -1705,68 +1706,38 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
 </section>
 
 <!-- ABOUT -->
-<section class="about-section" id="about" aria-label="About MME Home">
-  <div class="about-inner reveal">
-    <div class="about-photo-wrap">
-      <div class="about-photo">
-        <div class="about-photo-initials">SB</div>
+<section class="reveal" id="about" style="padding:80px 5%;background:var(--off-white)">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center">
+      <div style="background:linear-gradient(135deg,#0B2348 0%,#1B4F9A 100%);border-radius:24px;padding:40px;text-align:center;color:white">
+        <div style="width:72px;height:72px;background:rgba(255,255,255,0.1);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div style="font-family:Instrument Serif,serif;font-size:1.8rem;color:white;margin-bottom:6px">MME Home</div>
+        <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:24px">Making Mortgage Easy</div>
+        <div style="height:1px;background:rgba(255,255,255,0.1);margin-bottom:24px"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:center">
+          <div><div style="font-family:Instrument Serif,serif;font-size:1.8rem;color:#C8960A">100+</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:2px">Wholesale lenders</div></div>
+          <div><div style="font-family:Instrument Serif,serif;font-size:1.8rem;color:#C8960A">5 days</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:2px">Fastest close</div></div>
+          <div><div style="font-family:Instrument Serif,serif;font-size:1.8rem;color:#C8960A">$0</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:2px">Rate quote cost</div></div>
+          <div><div style="font-family:Instrument Serif,serif;font-size:1.8rem;color:#C8960A">CA</div><div style="font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:2px">Licensed statewide</div></div>
+        </div>
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);font-size:0.72rem;color:rgba(255,255,255,0.35)">NMLS# 1082653 &middot; DRE# 02244476<br>Shield Home Loans Inc. NMLS# 2396589</div>
       </div>
-      <div class="about-photo-badge">
-        <div class="about-badge-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div>
+        <div style="display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#1B4F9A;margin-bottom:12px">Our mission</div>
+        <h2 style="font-family:Instrument Serif,serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;color:#0B2348;letter-spacing:-0.03em;margin-bottom:20px">Making mortgage simple for every borrower</h2>
+        <p style="font-size:0.975rem;color:#4A6480;line-height:1.75;margin-bottom:20px">MME Home exists to level the playing field. For too long, the best mortgage rates and lender options were reserved for insiders &mdash; people who knew a guy, worked at a bank, or had a broker on speed dial.</p>
+        <p style="font-size:0.975rem;color:#4A6480;line-height:1.75;margin-bottom:32px">We changed that. As a licensed wholesale broker, we give every borrower access to 100+ institutional lenders &mdash; the same pricing and programs used by the largest investors in the country. No markups. No runaround. Just the best available rate, found and closed for you.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px">
+          <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:#4A6480"><div style="width:24px;height:24px;background:rgba(27,79,154,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1B4F9A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Wholesale pricing &mdash; not retail bank rates marked up for profit</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:#4A6480"><div style="width:24px;height:24px;background:rgba(27,79,154,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1B4F9A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>One broker who works for you &mdash; not the lender, not the bank</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;font-size:0.9rem;color:#4A6480"><div style="width:24px;height:24px;background:rgba(27,79,154,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1B4F9A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>Full transparency &mdash; no hidden fees, no bait-and-switch rates</div>
         </div>
-        <div>
-          <div class="about-badge-text">NMLS# 1082653</div>
-          <div class="about-badge-sub">Licensed Wholesale Broker &middot; CA</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button onclick="openModal(event,'')" style="background:#0B2348;color:white;border:none;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif">Get My Free Rate Quote</button>
+          <a href="mailto:shane@shieldhomeloans.com" style="background:transparent;color:#0B2348;border:1.5px solid #0B2348;border-radius:10px;padding:13px 28px;font-size:0.9rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center">Contact Us</a>
         </div>
-      </div>
-    </div>
-
-    <div class="about-content">
-      <span class="section-tag">About MME Home</span>
-      <h2>Home financing<br>built around you.</h2>
-      <p class="about-bio">MME Home was built on one simple idea: homeowners and investors deserve the same wholesale rates that big institutions get. As a licensed wholesale mortgage broker in California, we sit on your side of the table &mdash; not the bank&rsquo;s. We shop your loan across 100+ wholesale lenders to find the rate and terms that actually work for your situation, not theirs.</p>
-
-      <div class="about-stats">
-        <div class="about-stat">
-          <div class="about-stat-num">100+</div>
-          <div class="about-stat-label">Wholesale lenders</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">5 days</div>
-          <div class="about-stat-label">Avg. closing time</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">CA</div>
-          <div class="about-stat-label">Licensed &amp; operating</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">$0</div>
-          <div class="about-stat-label">Cost to get a quote</div>
-        </div>
-      </div>
-
-      <div class="about-values">
-        <div class="about-value">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span><strong>Wholesale pricing, not retail.</strong> Banks mark up rates to profit from you. We access wholesale rates and pass the savings directly to you.</span>
-        </div>
-        <div class="about-value">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span><strong>One application, 100+ lenders.</strong> We do the shopping so you don&rsquo;t have to. You get the best fit without filling out forms at every bank.</span>
-        </div>
-        <div class="about-value">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span><strong>No pressure, no surprises.</strong> We give you a clear comparison and let you decide. No upselling, no hidden fees, no confusion.</span>
-        </div>
-      </div>
-
-      <div class="about-cta-row">
-        <button class="about-btn-primary" onclick="openModal(event,'')">Work With Us &rarr;</button>
-        <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener" class="about-btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          View Zillow Profile
-        </a>
       </div>
     </div>
   </div>
