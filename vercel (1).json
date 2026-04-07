@@ -1,0 +1,16 @@
+{
+    "buildCommand": "",
+    "outputDirectory": ".",
+    "framework": null,
+    "rewrites": [
+        { "source": "/dscr", "destination": "/dscr-v2.html" },
+        { "source": "/dscr.html", "destination": "/dscr-v2.html" },
+        { "source": "/heloc", "destination": "/heloc.html" },
+        { "source": "/cashout", "destination": "/cashout.html" },
+        { "source": "/purchase", "destination": "/purchase.html" },
+        { "source": "/refinance", "destination": "/refinance.html" },
+        { "source": "/fhava", "destination": "/fhava.html" },
+        { "source": "/hea", "destination": "/hea.html" },
+        { "source": "/lending", "destination": "/lending.html" }
+    ]
+}
