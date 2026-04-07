@@ -543,8 +543,9 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
 </div>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var currentStep = 1;
-function openModal(addr) {
-  if(addr) document.getElementById('modalAddress').value = addr;
+function openModal(eventOrAddr, addr) {
+  var address = (typeof eventOrAddr === 'string') ? eventOrAddr : (addr || '');
+  if(address) document.getElementById('modalAddress').value = address;
   document.getElementById('leadModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
