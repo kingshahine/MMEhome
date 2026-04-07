@@ -534,5 +534,128 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
     var isOpen=btn.classList.contains('open');
     document.querySelectorAll('.faq-q').forEach(function(b){b.classList.remove('open');var a=b.nextElementSibling;if(a)a.classList.remov
 
+<script>
+function openModal(eventOrAddr, addr) {
+  var address = (typeof eventOrAddr === 'string') ? eventOrAddr : (addr || '');
+  if(address) document.getElementById('modalAddress').value = address;
+  document.getElementById('leadModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('leadModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('leadModal').addEventListener('click', function(e){ if(e.target===this)closeModal(); });
+
+var currentStep = 1;
+function goToStep(n) {
+  if(n===2){
+    var addr=document.getElementById('modalAddress').value.trim();
+    var err=document.getElementById('addrError');
+    var own=document.querySelector('#ownershipTiles .yn-tile.selected');
+    var occ=document.querySelector('#occTiles .occ-tile.selected');
+    if(!addr||addr.length<6){err.textContent='Please enter a valid property address.';err.classList.add('show');return;}
+    if(!/\d/.test(addr)){err.textContent='Address must include a street number.';err.classList.add('show');return;}
+    if(!own){err.textContent='Please select an ownership type.';err.classList.add('show');return;}
+    if(!occ){err.textContent='Please select how you will use this property.';err.classList.add('show');return;}
+    err.classList.remove('show');
+  }
+  document.getElementById('step'+currentStep).classList.remove('active');
+  document.getElementById('step'+n).classList.add('active');
+  currentStep=n;
+  document.querySelectorAll('.progress-dot').forEach(function(d,i){d.classList.toggle('active',i===n-1);});
+}
+function selectTile(el,groupId){document.querySelectorAll('#'+groupId+' .yn-tile').forEach(function(b){b.classList.remove('selected')});el.classList.add('selected');}
+function selectOcc(el){document.querySelectorAll('#occTiles .occ-tile').forEach(function(b){b.classList.remove('selected')});el.classList.add('selected');}
+
+async function handleFinalSubmit(){
+  var email=document.getElementById('inputEmail').value.trim();
+  var phone=document.getElementById('inputPhone').value.trim();
+  var err=document.getElementById('submitError');
+  if(!email||!email.includes('@')){err.textContent='Please enter a valid email address.';err.classList.add('show');return;}
+  if(!phone||phone.replace(/\D/g,'').length<10){err.textContent='Please enter a valid 10-digit phone number.';err.classList.add('show');return;}
+  if(!document.getElementById('consentTCPA').checked){err.textContent='Please agree to receive communications.';err.classList.add('show');return;}
+  if(!document.getElementById('consentPrivacy').checked){err.textContent='Please agree to the Privacy Policy.';err.classList.add('show');return;}
+  err.classList.remove('show');
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.textContent='Submitting...';
+  var fullAddr=document.getElementById('modalAddress').value.trim();
+  var parts=fullAddr.split(',').map(function(s){return s.trim();});
+  var street=parts[0]||'',city=parts[1]||'';
+  var stateZip=(parts[2]||'').trim().split(' ');
+  var payload={
+    first_name:document.getElementById('inputFirstName').value.trim(),
+    last_name:document.getElementById('inputLastName').value.trim(),
+    email:email,phone:phone.replace(/\D/g,'').slice(0,10),
+    address:street,city:city,state:stateZip[0]||'',zip:stateZip[1]||'',
+    property_address:street,property_city:city,property_state:stateZip[0]||'',
+    property_use:(document.querySelector('#occTiles .occ-tile.selected')||{}).textContent,
+    ownership_type:(document.querySelector('#ownershipTiles .yn-tile.selected')||{}).textContent,
+    income_source:document.getElementById('inputIncomeSource').value,
+    pre_tax_income:document.getElementById('inputPreTaxIncome').value,
+    foreclosure:(document.querySelector('#latesTiles .yn-tile.selected')||{}).textContent==='Yes'?'yes':'no',
+    lead_source:'MME Home',application_date:new Date().toISOString().split('T')[0]
+  };
+  try{
+    var blob=new Blob([JSON.stringify(payload)],{type:'application/json'});
+    navigator.sendBeacon('https://app.getbonzo.com/api/webhook/92f320ebcd9163f70b63a6537a92e7d6',blob);
+  }catch(e){}
+  document.getElementById('step7').classList.remove('active');
+  document.getElementById('stepSuccess').classList.add('active');
+}
+
+var debounceTimers={};
+var styleEl=document.createElement('style');
+styleEl.textContent='.autocomplete-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #E4EAF2;border-radius:12px;box-shadow:0 8px 24px rgba(11,35,72,0.12);z-index:50;display:none;overflow:hidden}.autocomplete-dropdown.show{display:block}.autocomplete-item{padding:10px 14px;font-size:0.88rem;cursor:pointer;border-bottom:1px solid #f3f4f6}.autocomplete-item:hover{background:#F0F6FF}.autocomplete-item:last-child{border-bottom:none}';
+document.head.appendChild(styleEl);
+
+function handleAddressInput(val,dropdownId,inputId){
+  clearTimeout(debounceTimers[dropdownId]);
+  var dropdown=document.getElementById(dropdownId);
+  if(!val||val.length<4){if(dropdown){dropdown.classList.remove('show');dropdown.innerHTML='';}return;}
+  debounceTimers[dropdownId]=setTimeout(function(){
+    fetch('https://photon.komoot.io/api/?q='+encodeURIComponent(val)+'&limit=5&bbox=-125,24,-66,50&lang=en')
+      .then(function(r){return r.json();})
+      .then(function(data){
+        var items=(data.features||[]).filter(function(f){return f.properties&&f.properties.country==='United States';});
+        if(!dropdown)return;
+        if(!items.length){dropdown.classList.remove('show');return;}
+        dropdown.innerHTML=items.map(function(f){
+          var p=f.properties;
+          var label=[p.housenumber,p.street,p.city,p.state].filter(Boolean).join(', ');
+          return '<div class="autocomplete-item" onclick="pickAddress(''+label.replace(/'/g,"\'")+"','"+inputId+"','"+dropdownId+"')">"+label+'</div>';
+        }).join('');
+        dropdown.classList.add('show');
+      }).catch(function(){});
+  },350);
+}
+function pickAddress(label,inputId,dropdownId){
+  document.getElementById(inputId).value=label;
+  var d=document.getElementById(dropdownId);
+  if(d){d.classList.remove('show');d.innerHTML='';}
+}
+document.addEventListener('click',function(e){
+  var d=document.getElementById('modalDropdown');
+  if(d&&!d.contains(e.target))d.classList.remove('show');
+});
+
+window.addEventListener('scroll',function(){
+  var nav=document.querySelector('nav');
+  if(nav)nav.classList.toggle('scrolled',window.scrollY>20);
+});
+function toggleMobileNav(){
+  var d=document.getElementById('mobileDrawer');
+  if(d)d.classList.toggle('open');
+}
+var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var isOpen=btn.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(function(b){b.classList.remove('open');var a=b.nextElementSibling;if(a)a.classList.remove('open');});
+    if(!isOpen){btn.classList.add('open');var ans=btn.nextElementSibling;if(ans)ans.classList.add('open');}
+  });
+});
+</script>
 </body>
 </html>
