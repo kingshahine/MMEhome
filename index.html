@@ -1556,195 +1556,183 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
   </div>
 </section>
 <section class="products-tab-section" id="products" aria-label="Loan Products">
-  <div class="reveal" style="text-align:center;margin-bottom:56px;">
-    <span class="section-tag">Loan Products</span>
-    <h2 class="section-h2">Unlock more possibilities<br>with MME Home</h2>
-  </div>
-  <div class="products-tab-inner reveal">
+<div class="products-tab-inner">
 
-    <!-- Visual panel -->
-    <div class="products-tab-visual">
-            <div class="tab-visual-panel active" id="visual-0">
-        <div class="tab-visual-label">HELOC</div>
-        <div class="tab-visual-title">Flexible access to your equity</div>
-        <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">$1M</div><div class="tab-visual-stat-label">Max borrow</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">7-Day</div><div class="tab-visual-stat-label">Closings available</div></div>
-        </div>
-        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Draw period flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:90%"></div></div></div>
+  <!-- LEFT: Tab list -->
+  <div class="products-tab-list">
+    <div class="section-tag">Our products</div>
+    <h2 class="section-h2" style="margin-bottom:32px">Every loan type, one broker</h2>
+
+    <div class="products-tab-item active" data-tab="0">
+      <div class="products-tab-header">
+        <span class="products-tab-name">HELOC</span>
+        <span class="products-tab-indicator"></span>
       </div>
-      <div class="tab-visual-panel" id="visual-1">
-        <div class="tab-visual-label">DSCR Loans</div>
-        <div class="tab-visual-title">Qualify on rental income</div>
-        <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">No</div><div class="tab-visual-stat-label">Personal income needed</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">.75+</div><div class="tab-visual-stat-label">Min. DSCR ratio</div></div>
+      <div class="products-tab-body">
+        <p class="products-tab-desc">Access a revolving line of credit against your home&rsquo;s equity &mdash; use what you need, when you need it. 7-day closings available.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="products-tab-btn" onclick="openModal(event,'')" style="background:#0B2348;color:white;border-color:#0B2348">Get started</button>
+          <a href="heloc.html" class="products-tab-btn" style="text-decoration:none;text-align:center">How it works &rarr;</a>
         </div>
-        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Investor portfolio growth</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:72%"></div></div></div>
-      </div>
-      <div class="tab-visual-panel" id="visual-2">
-        <div class="tab-visual-label">Cash-Out Refinance</div>
-        <div class="tab-visual-title">Turn equity into opportunity</div>
-        <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">80%</div><div class="tab-visual-stat-label">Max LTV</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">$500K+</div><div class="tab-visual-stat-label">Max cash out</div></div>
-        </div>
-        <div class="tab-visual-bar"><div class="tab-visual-bar-label">vs. credit card APR</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:88%"></div></div></div>
-      </div>
-      <div class="tab-visual-panel" id="visual-3">
-        <div class="tab-visual-label">Purchase</div>
-        <div class="tab-visual-title">Buy your home at wholesale rates</div>
-        <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">3%</div><div class="tab-visual-stat-label">Min. down payment</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">100+</div><div class="tab-visual-stat-label">Lenders shopped</div></div>
-        </div>
-        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Rate advantage vs. retail banks</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:78%"></div></div></div>
-      </div>
-      <div class="tab-visual-panel" id="visual-4">
-        <div class="tab-visual-label">Refinance</div>
-        <div class="tab-visual-title">Lower your rate &amp; payment</div>
-        <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">0.5%</div><div class="tab-visual-stat-label">Avg. rate savings</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">21 days</div><div class="tab-visual-stat-label">Avg. close time</div></div>
-        </div>
-        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Monthly savings potential</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:65%"></div></div></div>
-      </div>
-      <div class="tab-visual-panel" id="visual-5">
-        <div class="tab-visual-label">FHA / VA</div>
-        <div class="tab-visual-title">Government-backed home loans</div>
-        <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">3.5%</div><div class="tab-visual-stat-label">Min. FHA down</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">0%</div><div class="tab-visual-stat-label">VA down payment</div></div>
-        </div>
-        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Qualification flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:85%"></div></div></div>
-      </div>
-      <div class="tab-visual-panel" id="visual-6">
-        <div class="tab-visual-label">Home Equity Agreement</div>
-        <div class="tab-visual-title">Tap equity, no monthly payments</div>
-        <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">No</div><div class="tab-visual-stat-label">Monthly payments</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">Up to 30%</div><div class="tab-visual-stat-label">Of home value</div></div>
-        </div>
-        <div class="tab-visual-bar"><div class="tab-visual-bar-label">Flexibility vs. traditional financing</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:80%"></div></div></div>
       </div>
     </div>
 
-    <!-- Tab list -->
-    <div class="products-tab-list">
-            <div class="products-tab-item active" onclick="selectTab(0)">
-        <div class="products-tab-header">
-          <span class="products-tab-name" style="font-weight:700;">HELOC</span>
-          <div class="products-tab-indicator"></div>
-        </div>
-        <div class="products-tab-body">
-          <p class="products-tab-desc">Access a revolving line of credit against your home&rsquo;s equity &mdash; use what you need, when you need it. 7-day closings available.</p>
-          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
-      <a href="refinance.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="hea.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="fhava.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="purchase.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="cashout.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="dscr.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a href="heloc.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
+    <div class="products-tab-item" data-tab="1">
+      <div class="products-tab-header">
+        <span class="products-tab-name">DSCR Loans</span>
+        <span class="products-tab-indicator"></span>
       </div>
-      <div class="products-tab-item" onclick="selectTab(1)">
-        <div class="products-tab-header">
-          <span class="products-tab-name" style="font-weight:700;">DSCR Loans</span>
-          <div class="products-tab-indicator"></div>
-        </div>
-        <div class="products-tab-body">
-          <p class="products-tab-desc">Qualify using your rental property&rsquo;s income &mdash; not your personal income. Ideal for real estate investors scaling their portfolio.</p>
-          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
-        </div>
-      </div>
-      <div class="products-tab-item" onclick="selectTab(2)">
-        <div class="products-tab-header">
-          <span class="products-tab-name" style="font-weight:700;">Cash-Out Refinance</span>
-          <div class="products-tab-indicator"></div>
-        </div>
-        <div class="products-tab-body">
-          <p class="products-tab-desc">Tap into your home equity to fund renovations, consolidate debt, or invest &mdash; at rates that beat your credit card.</p>
-          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
-        </div>
-      </div>
-      <div class="products-tab-item" onclick="selectTab(3)">
-        <div class="products-tab-header">
-          <span class="products-tab-name">Purchase</span>
-          <div class="products-tab-indicator"></div>
-        </div>
-        <div class="products-tab-body">
-          <p class="products-tab-desc">Buy your first home or next property with wholesale rates banks simply can&rsquo;t match. Down payments from 3%, with access to 100+ lenders.</p>
-          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
-        </div>
-      </div>
-      <div class="products-tab-item" onclick="selectTab(4)">
-        <div class="products-tab-header">
-          <span class="products-tab-name" style="font-weight:700;">Refinance</span>
-          <div class="products-tab-indicator"></div>
-        </div>
-        <div class="products-tab-body">
-          <p class="products-tab-desc">Lower your rate, reduce your monthly payment, or shorten your loan term with access to wholesale pricing across 100+ lenders.</p>
-          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
-        </div>
-      </div>
-      <div class="products-tab-item" onclick="selectTab(5)">
-        <div class="products-tab-header">
-          <span class="products-tab-name" style="font-weight:700;">FHA / VA Loans</span>
-          <div class="products-tab-indicator"></div>
-        </div>
-        <div class="products-tab-body">
-          <p class="products-tab-desc">Government-backed programs for first-time buyers and veterans. Low down payments, flexible qualification requirements.</p>
-          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
-        </div>
-      </div>
-      <div class="products-tab-item" onclick="selectTab(6)">
-        <div class="products-tab-header">
-          <span class="products-tab-name" style="font-weight:700;">Home Equity Agreement</span>
-          <div class="products-tab-indicator"></div>
-        </div>
-        <div class="products-tab-body">
-          <p class="products-tab-desc">Access your home equity with no monthly payments and no interest. We share in a portion of your home&rsquo;s future value &mdash; ideal if you don&rsquo;t qualify for traditional financing.</p>
-          <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+      <div class="products-tab-body">
+        <p class="products-tab-desc">Qualify using your rental property&rsquo;s income &mdash; not your personal income. Ideal for real estate investors scaling their portfolio.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="products-tab-btn" onclick="openModal(event,'')" style="background:#0B2348;color:white;border-color:#0B2348">Get started</button>
+          <a href="dscr.html" class="products-tab-btn" style="text-decoration:none;text-align:center">How it works &rarr;</a>
         </div>
       </div>
     </div>
+
+    <div class="products-tab-item" data-tab="2">
+      <div class="products-tab-header">
+        <span class="products-tab-name">Cash-Out Refinance</span>
+        <span class="products-tab-indicator"></span>
+      </div>
+      <div class="products-tab-body">
+        <p class="products-tab-desc">Replace your mortgage and pull out equity as cash. Fund renovations, consolidate debt, or invest &mdash; up to 80% LTV.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="products-tab-btn" onclick="openModal(event,'')" style="background:#0B2348;color:white;border-color:#0B2348">Get started</button>
+          <a href="cashout.html" class="products-tab-btn" style="text-decoration:none;text-align:center">How it works &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-tab-item" data-tab="3">
+      <div class="products-tab-header">
+        <span class="products-tab-name">Purchase</span>
+        <span class="products-tab-indicator"></span>
+      </div>
+      <div class="products-tab-body">
+        <p class="products-tab-desc">Buy your next home with the best rate from 100+ wholesale lenders. Same-day pre-approval. Fast, smooth close.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="products-tab-btn" onclick="openModal(event,'')" style="background:#0B2348;color:white;border-color:#0B2348">Get started</button>
+          <a href="purchase.html" class="products-tab-btn" style="text-decoration:none;text-align:center">How it works &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-tab-item" data-tab="4">
+      <div class="products-tab-header">
+        <span class="products-tab-name">Refinance</span>
+        <span class="products-tab-indicator"></span>
+      </div>
+      <div class="products-tab-body">
+        <p class="products-tab-desc">Lower your rate or shorten your term without taking cash out. No-cost options available. 5&ndash;30 year terms.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="products-tab-btn" onclick="openModal(event,'')" style="background:#0B2348;color:white;border-color:#0B2348">Get started</button>
+          <a href="refinance.html" class="products-tab-btn" style="text-decoration:none;text-align:center">How it works &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-tab-item" data-tab="5">
+      <div class="products-tab-header">
+        <span class="products-tab-name">FHA / VA Loans</span>
+        <span class="products-tab-indicator"></span>
+      </div>
+      <div class="products-tab-body">
+        <p class="products-tab-desc">Government-backed programs with flexible credit and low down payments. FHA from 3.5% down. VA with 0% down for eligible veterans.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="products-tab-btn" onclick="openModal(event,'')" style="background:#0B2348;color:white;border-color:#0B2348">Get started</button>
+          <a href="fhava.html" class="products-tab-btn" style="text-decoration:none;text-align:center">How it works &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-tab-item" data-tab="6">
+      <div class="products-tab-header">
+        <span class="products-tab-name">Home Equity Agreement</span>
+        <span class="products-tab-indicator"></span>
+      </div>
+      <div class="products-tab-body">
+        <p class="products-tab-desc">Access equity without monthly payments. Share a portion of future appreciation instead. No income verification required.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="products-tab-btn" onclick="openModal(event,'')" style="background:#0B2348;color:white;border-color:#0B2348">Get started</button>
+          <a href="hea.html" class="products-tab-btn" style="text-decoration:none;text-align:center">How it works &rarr;</a>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <!-- RIGHT: Visual panel -->
+  <div class="products-tab-visual">
+    <div class="tab-visual-panel active" data-tab="0">
+      <div class="tab-visual-label">HELOC</div>
+      <div class="tab-visual-title">Flexible access to your equity</div>
+      <div class="tab-visual-stats">
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">$1M</div><div class="tab-visual-stat-label">Max borrow</div></div>
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">7-Day</div><div class="tab-visual-stat-label">Closings available</div></div>
+      </div>
+      <div class="tab-visual-bar"><div class="tab-visual-bar-label">Draw period flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:90%"></div></div></div>
+    </div>
+    <div class="tab-visual-panel" data-tab="1">
+      <div class="tab-visual-label">DSCR Loans</div>
+      <div class="tab-visual-title">Qualify on rental income</div>
+      <div class="tab-visual-stats">
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">No</div><div class="tab-visual-stat-label">Personal income needed</div></div>
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">.75+</div><div class="tab-visual-stat-label">Min. DSCR ratio</div></div>
+      </div>
+      <div class="tab-visual-bar"><div class="tab-visual-bar-label">Investor portfolio growth</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:75%"></div></div></div>
+    </div>
+    <div class="tab-visual-panel" data-tab="2">
+      <div class="tab-visual-label">Cash-Out Refinance</div>
+      <div class="tab-visual-title">Access your equity as cash</div>
+      <div class="tab-visual-stats">
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">80%</div><div class="tab-visual-stat-label">Max LTV</div></div>
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">No PMI</div><div class="tab-visual-stat-label">Options available</div></div>
+      </div>
+      <div class="tab-visual-bar"><div class="tab-visual-bar-label">Equity unlock potential</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:80%"></div></div></div>
+    </div>
+    <div class="tab-visual-panel" data-tab="3">
+      <div class="tab-visual-label">Purchase</div>
+      <div class="tab-visual-title">Best rate from 100+ lenders</div>
+      <div class="tab-visual-stats">
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">Same day</div><div class="tab-visual-stat-label">Pre-approval</div></div>
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">100+</div><div class="tab-visual-stat-label">Lenders</div></div>
+      </div>
+      <div class="tab-visual-bar"><div class="tab-visual-bar-label">Lender competition</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:95%"></div></div></div>
+    </div>
+    <div class="tab-visual-panel" data-tab="4">
+      <div class="tab-visual-label">Refinance</div>
+      <div class="tab-visual-title">Lower your rate, reduce your payment</div>
+      <div class="tab-visual-stats">
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">No-cost</div><div class="tab-visual-stat-label">Options available</div></div>
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">5&ndash;30yr</div><div class="tab-visual-stat-label">Terms</div></div>
+      </div>
+      <div class="tab-visual-bar"><div class="tab-visual-bar-label">Rate savings potential</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:85%"></div></div></div>
+    </div>
+    <div class="tab-visual-panel" data-tab="5">
+      <div class="tab-visual-label">FHA / VA</div>
+      <div class="tab-visual-title">Low down payment programs</div>
+      <div class="tab-visual-stats">
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">3.5%</div><div class="tab-visual-stat-label">Down (FHA)</div></div>
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">0%</div><div class="tab-visual-stat-label">Down (VA)</div></div>
+      </div>
+      <div class="tab-visual-bar"><div class="tab-visual-bar-label">Accessibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:95%"></div></div></div>
+    </div>
+    <div class="tab-visual-panel" data-tab="6">
+      <div class="tab-visual-label">Home Equity Agreement</div>
+      <div class="tab-visual-title">Equity access, no monthly payments</div>
+      <div class="tab-visual-stats">
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">No payments</div><div class="tab-visual-stat-label">Monthly</div></div>
+        <div class="tab-visual-stat"><div class="tab-visual-stat-num">10yr</div><div class="tab-visual-stat-label">Term</div></div>
+      </div>
+      <div class="tab-visual-bar"><div class="tab-visual-bar-label">Payment flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+</div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how" aria-label="How It Works">
-  <div class="reveal">
-    <span class="section-tag">How It Works</span>
-    <h2 class="section-h2">From address to approval<br>in three simple steps.</h2>
-    <p class="section-sub">We&rsquo;ve stripped out the complexity so you can focus on finding the right home &mdash; not drowning in paperwork.</p>
-  </div>
-  <div class="how-grid reveal">
-    <div class="how-step">
-      <div class="how-num">1</div>
-      <div>
-        <div class="how-title">Search your address</div>
-        <div class="how-desc">Enter your property address to instantly see what you may qualify for &mdash; no credit pull, no commitment.</div>
-      </div>
-    </div>
-    <div class="how-step">
-      <div class="how-num">2</div>
-      <div>
-        <div class="how-title">Fill out a short form</div>
-        <div class="how-desc">Takes under 5 minutes. We shop your profile across 100+ wholesale lenders to find the best fit for you.</div>
-      </div>
-    </div>
-    <div class="how-step">
-      <div class="how-num">3</div>
-      <div>
-        <div class="how-title">Get matched with a MME Home consultant</div>
-        <div class="how-desc">A consultant personally reaches out with your top options, a clear side-by-side comparison, and zero pressure.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
 <section class="testimonials-section" id="testimonials" aria-label="Client Reviews">
   <div class="reveal" style="text-align:center;">
     <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:16px 24px;text-decoration:none;transition:background 0.2s;">
