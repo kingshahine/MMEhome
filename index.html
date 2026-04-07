@@ -183,7 +183,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --navy: #0B2348;
@@ -301,13 +301,13 @@ nav.scrolled { box-shadow: var(--shadow); }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
 
 .hero-h1 {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'DM Sans', sans-serif; font-weight: 700;
   font-size: clamp(3rem, 7vw, 5.2rem);
-  line-height: 1.05; color: var(--navy);
-  letter-spacing: -0.03em; margin-bottom: 20px;
+  line-height: 1.0; color: var(--navy);
+  letter-spacing: -0.035em; margin-bottom: 20px;
   opacity: 0; animation: fadeUp 0.6s 0.2s ease forwards;
 }
-.hero-h1 em { font-style: italic; color: #1B4F9A; display: block; }
+.hero-h1 em { font-style: normal; font-weight: 300; color: #1B4F9A; display: block; }
 
 .hero-sub {
   font-size: 1.05rem; color: var(--grey-text);
@@ -1420,8 +1420,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
   <div class="hero-left">
     <div class="hero-badge">Wholesale Broker &middot; 100+ Lenders</div>
     <h1 class="hero-h1">
-      Home financing,
-      <em>done easier.</em>
+      Home financing,<em>done easier.</em>
     </h1>
     <p class="hero-sub">As a wholesale mortgage broker, we give you access to 100+ lenders &mdash; meaning better rates, more options, and a smoother process than any bank can offer.</p>
     <div class="search-card">
@@ -1461,7 +1460,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
       <h2 class="heloc-h2">HELOC</h2>
       <ul class="heloc-bullets">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>7-Day closings available</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Borrow up to $500,000</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Borrow up to $1,000,000</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Access to 100+ wholesale lenders for the best available rate</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Use funds for renovations, debt consolidation, investments &amp; more</li>
       </ul>
@@ -1477,7 +1476,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div class="heloc-congrats-label">You may qualify for</div>
-          <div class="heloc-congrats-amount">$500K</div>
+          <div class="heloc-congrats-amount">$1M</div>
           <div class="heloc-congrats-sub">HELOC &middot; Subject to approval</div>
           <div class="heloc-divider"></div>
           <div class="heloc-detail-row"><span>Draw Period</span><span>10 Years</span></div>
@@ -1520,7 +1519,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         </div>
         <div style="padding:24px 28px">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
-            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Max line</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">$500K</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Max line</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">$1M</div></div>
             <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Max CLTV</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">90%</div></div>
             <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Fastest close</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">5 days</div></div>
             <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Draw period</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">10 yrs</div></div>
@@ -1543,7 +1542,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
             <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Loan amount</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">Up to $3M</div></div>
             <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Income docs</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">None</div></div>
-            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Min DSCR</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">1.0</div></div>
+            <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">Min DSCR</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">.75</div></div>
             <div style="background:var(--off-white);border-radius:10px;padding:12px 14px"><div style="font-size:0.68rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px">LLC allowed</div><div style="font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--navy)">Yes</div></div>
           </div>
           <div style="display:flex;gap:10px">
@@ -1569,7 +1568,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <div class="tab-visual-label">HELOC</div>
         <div class="tab-visual-title">Flexible access to your equity</div>
         <div class="tab-visual-stats">
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">$500K</div><div class="tab-visual-stat-label">Max borrow</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">$1M</div><div class="tab-visual-stat-label">Max borrow</div></div>
           <div class="tab-visual-stat"><div class="tab-visual-stat-num">7-Day</div><div class="tab-visual-stat-label">Closings available</div></div>
         </div>
         <div class="tab-visual-bar"><div class="tab-visual-bar-label">Draw period flexibility</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:90%"></div></div></div>
@@ -1579,7 +1578,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <div class="tab-visual-title">Qualify on rental income</div>
         <div class="tab-visual-stats">
           <div class="tab-visual-stat"><div class="tab-visual-stat-num">No</div><div class="tab-visual-stat-label">Personal income needed</div></div>
-          <div class="tab-visual-stat"><div class="tab-visual-stat-num">1.0+</div><div class="tab-visual-stat-label">Min. DSCR ratio</div></div>
+          <div class="tab-visual-stat"><div class="tab-visual-stat-num">.75+</div><div class="tab-visual-stat-label">Min. DSCR ratio</div></div>
         </div>
         <div class="tab-visual-bar"><div class="tab-visual-bar-label">Investor portfolio growth</div><div class="tab-visual-bar-track"><div class="tab-visual-bar-fill" style="width:72%"></div></div></div>
       </div>
@@ -1640,6 +1639,13 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <div class="products-tab-body">
           <p class="products-tab-desc">Access a revolving line of credit against your home&rsquo;s equity &mdash; use what you need, when you need it. 7-day closings available.</p>
           <button class="products-tab-btn" onclick="openModal(event,'')">Get started</button>
+      <a href="refinance.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="hea.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="fhava.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="purchase.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="cashout.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="dscr.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="heloc.html" style="font-size:0.82rem;font-weight:600;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:8px">Full page <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
       </div>
       <div class="products-tab-item" onclick="selectTab(1)">
@@ -2999,7 +3005,7 @@ function handlePageOverlayClick(e) {
         <div class="dscr-formula-den">Monthly Debt Obligations (PITIA)</div>
       </div>
       <div class="dscr-formula-result">
-        A DSCR of <strong>1.0</strong> means the property breaks even &mdash; income covers the payment.<br>
+        A DSCR of <strong>.75</strong> means the property breaks even &mdash; income covers the payment.<br>
         Most lenders require <strong>1.0 or higher</strong>. A ratio of <strong>1.25+</strong> gets the best rates.
       </div>
     </div>
