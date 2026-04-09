@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- MME Home v3.0 | 2026-04-07 -->
+<!-- Making Mortgage Easy v3.0 | 2026-04-07 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FHA & VA Loans California 2026 | Low Down Payment | MME Home</title>
+<title>FHA & VA Loans California 2026 | Low Down Payment | Making Mortgage Easy</title>
 <meta name="keywords" content="FHA loan California, VA loan California, FHA mortgage 2026, VA mortgage California, low down payment home loan California">
 <meta name="description" content="FHA loans from 3.5% down. VA loans with 0% down for eligible veterans. Flexible credit requirements. Licensed California wholesale broker. NMLS# 1082653.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -216,7 +216,7 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
     <div class="nav-logo-icon">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     </div>
-    <div class="nav-logo-text">MME Home <span>Making Mortgage Easy</span></div>
+    <div class="nav-logo-text">Making Mortgage Easy</div>
   </a>
   <ul class="nav-links">
     <li><a href="index.html#products">Products</a></li>
@@ -277,7 +277,7 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <div class="footer-brand-name">MME Home <span>Making Mortgage Easy</span></div>
+      <div class="footer-brand-name">Making Mortgage Easy</div>
       <p>Licensed wholesale mortgage broker in California. NMLS# 1082653 &middot; DRE# 02244476</p>
     </div>
     <div class="footer-links">
@@ -301,10 +301,10 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
   </div>
   <div class="footer-bottom">
     <div class="footer-bottom-row">
-      <span>&copy; 2025 MME Home &middot; Shield Home Loans Inc. &middot; NMLS# 2396589</span>
+      <span>&copy; 2026 Making Mortgage Easy &middot; Shield Home Loans Inc. &middot; NMLS# 2396589</span>
       <span>32 Discovery Suite 170, Irvine CA &middot; (888) 819-9981</span>
     </div>
-    <p>MME Home is a DBA of Shield Home Loans Inc., a licensed California mortgage broker. NMLS# 2396589. DRE# 02244476. This is not an offer to lend. All loans subject to credit approval, appraisal, and lender guidelines. Equal Housing Opportunity.</p>
+    <p>Making Mortgage Easy is a DBA of Shield Home Loans Inc., a licensed California mortgage broker. NMLS# 2396589. DRE# 02244476. This is not an offer to lend. All loans subject to credit approval, appraisal, and lender guidelines. Equal Housing Opportunity.</p>
   </div>
 </footer>
 <div class="modal-overlay" id="leadModal">
@@ -415,7 +415,7 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
       <p class="modal-sub">We'll send your rate quote here.</p>
       <div class="fwrap"><input class="finput" id="inputEmail" type="email" placeholder=" "><label class="flabel">Email address</label></div>
       <div class="fwrap"><input class="finput" id="inputPhone" type="tel" placeholder=" "><label class="flabel">Phone number</label></div>
-      <label class="consent-row"><input class="consent-check" type="checkbox" id="consentTCPA">I agree to receive calls and texts from MME Home / Shield Home Loans about my mortgage inquiry. Reply STOP to opt out.</label>
+      <label class="consent-row"><input class="consent-check" type="checkbox" id="consentTCPA">I agree to receive calls and texts from Making Mortgage Easy / Shield Home Loans about my mortgage inquiry. Reply STOP to opt out.</label>
       <label class="consent-row"><input class="consent-check" type="checkbox" id="consentPrivacy">I agree to the <span style="color:var(--blue);text-decoration:underline">Privacy Policy</span> and <span style="color:var(--blue);text-decoration:underline">Terms of Service</span>.</label>
       <div class="error-box" id="submitError"></div>
       <button class="form-submit" id="submitBtn" onclick="handleFinalSubmit()">Get My Rate Quote &rarr;</button>
@@ -458,7 +458,7 @@ async function handleFinalSubmit(){
   var btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='Submitting...';
   var p=document.getElementById('modalAddress').value.trim().split(',').map(function(s){return s.trim();});
   var sz=(p[2]||'').trim().split(' ');
-  var payload={first_name:document.getElementById('inputFirstName').value.trim(),last_name:document.getElementById('inputLastName').value.trim(),email:email,phone:phone.replace(/\D/g,'').slice(0,10),address:p[0]||'',city:p[1]||'',state:sz[0]||'',zip:sz[1]||'',property_use:(document.querySelector('#occTiles .occ-tile.selected')||{}).textContent||'',ownership_type:(document.querySelector('#ownershipTiles .yn-tile.selected')||{}).textContent||'',income_source:document.getElementById('inputIncomeSource').value,pre_tax_income:document.getElementById('inputPreTaxIncome').value,lead_source:'MME Home',application_date:new Date().toISOString().split('T')[0]};
+  var payload={first_name:document.getElementById('inputFirstName').value.trim(),last_name:document.getElementById('inputLastName').value.trim(),email:email,phone:phone.replace(/\D/g,'').slice(0,10),address:p[0]||'',city:p[1]||'',state:sz[0]||'',zip:sz[1]||'',property_use:(document.querySelector('#occTiles .occ-tile.selected')||{}).textContent||'',ownership_type:(document.querySelector('#ownershipTiles .yn-tile.selected')||{}).textContent||'',income_source:document.getElementById('inputIncomeSource').value,pre_tax_income:document.getElementById('inputPreTaxIncome').value,lead_source:'Making Mortgage Easy',application_date:new Date().toISOString().split('T')[0]};
   try{navigator.sendBeacon('https://app.getbonzo.com/api/webhook/92f320ebcd9163f70b63a6537a92e7d6',new Blob([JSON.stringify(payload)],{type:'application/json'}));}catch(e){}
   document.getElementById('step7').classList.remove('active');
   document.getElementById('stepSuccess').classList.add('active');
