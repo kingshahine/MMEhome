@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're All Set | Making Mortgage Easy</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JFQTS4J4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5JFQTS4J4P');
+  // Fire conversion event
+  gtag('event', 'conversion', {
+    'event_category': 'lead',
+    'event_label': 'form_submission',
+    'value': 1
+  });
+  // Also fire a custom GA4 event
+  gtag('event', 'generate_lead', {
+    'currency': 'USD',
+    'value': 1.0
+  });
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B2348;
+    --blue: #1B4F9A;
+    --white: #ffffff;
+    --off-white: #F5F7FB;
+    --grey-light: #E8ECF2;
+    --grey-mid: #8A97AA;
+    --grey-text: #4A6480;
+    --accent: #C8960A;
+  }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    background: var(--off-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 68px;
+    background: white;
+    border-bottom: 1px solid var(--grey-light);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon {
+    width: 36px; height: 36px; background: var(--navy); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav-logo-text { font-size: 1rem; font-weight: 600; color: var(--navy); letter-spacing: -0.02em; }
+
+  /* MAIN */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 5%;
+  }
+  .card {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid var(--grey-light);
+    box-shadow: 0 8px 40px rgba(11,35,72,0.08);
+    max-width: 560px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .card-header {
+    background: linear-gradient(135deg, #0B2348 0%, #1B4F9A 100%);
+    padding: 40px 40px 36px;
+    text-align: center;
+  }
+  .check-icon {
+    width: 64px; height: 64px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .check-icon svg { width: 30px; height: 30px; }
+  .card-header h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem; color: white;
+    line-height: 1.1; margin-bottom: 10px;
+  }
+  .card-header p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+  }
+  .card-body { padding: 36px 40px; }
+
+  .steps-label {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey-mid); margin-bottom: 20px;
+  }
+  .steps { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .step {
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .step-dot {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: rgba(27,79,154,0.08);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-dot svg { width: 14px; height: 14px; color: var(--blue); }
+  .step-text { padding-top: 3px; }
+  .step-text strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .step-text span { font-size: 0.82rem; color: var(--grey-text); line-height: 1.5; }
+
+  .divider { height: 1px; background: var(--grey-light); margin-bottom: 28px; }
+
+  .cta-group { display: flex; flex-direction: column; gap: 10px; }
+  .btn-primary {
+    background: var(--navy); color: white;
+    border: none; border-radius: 10px;
+    padding: 14px 24px; font-size: 0.92rem; font-weight: 700;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    text-decoration: none; text-align: center;
+    display: block; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--blue); }
+  .btn-secondary {
+    background: transparent; color: var(--grey-text);
+    border: 1.5px solid var(--grey-light);
+    border-radius: 10px; padding: 14px 24px;
+    font-size: 0.92rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    text-decoration: none; text-align: center;
+    display: block; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
+
+  .contact-note {
+    margin-top: 24px; text-align: center;
+    font-size: 0.8rem; color: var(--grey-mid);
+  }
+  .contact-note a { color: var(--blue); text-decoration: none; font-weight: 600; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 24px 5%;
+    background: white; border-top: 1px solid var(--grey-light);
+  }
+  footer p { font-size: 0.75rem; color: var(--grey-mid); }
+
+  @media (max-width: 600px) {
+    .card-header { padding: 32px 24px 28px; }
+    .card-body { padding: 28px 24px; }
+    .card-header h1 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="12,2 22,10 2,10" fill="white"/>
+        <rect x="15" y="3.5" width="2.5" height="4" rx="0.3" fill="white"/>
+        <rect x="3.5" y="10" width="17" height="12" rx="0.5" fill="white"/>
+        <rect x="10" y="15" width="4" height="7" rx="0.5" fill="#1B4F9A"/>
+        <rect x="5" y="12" width="3.5" height="3.5" rx="0.3" fill="#1B4F9A"/>
+        <rect x="15.5" y="12" width="3.5" height="3.5" rx="0.3" fill="#1B4F9A"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">Making Mortgage Easy</div>
+  </a>
+</nav>
+
+<main>
+  <div class="card">
+    <div class="card-header">
+      <div class="check-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h1>You're all set!</h1>
+      <p>We've received your information and a consultant will be in touch within 1 business day with your personalized rate options.</p>
+    </div>
+    <div class="card-body">
+      <div class="steps-label">What happens next</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="step-text">
+            <strong>A consultant reviews your profile</strong>
+            <span>We look at your property, goals, and financial situation to find the best fit.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div class="step-text">
+            <strong>We shop 100+ wholesale lenders</strong>
+            <span>We compare rates across our entire lender network to find your best option.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="step-text">
+            <strong>You receive a clear comparison</strong>
+            <span>No pressure, no jargon — just your best options laid out simply.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="cta-group">
+        <a href="index.html" class="btn-primary">Back to Home</a>
+        <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener" class="btn-secondary">View Our Zillow Reviews</a>
+      </div>
+
+      <div class="contact-note">
+        Questions? Call us at <a href="tel:+19496911335">(949) 691-1335</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Making Mortgage Easy &nbsp;|&nbsp; NMLS# 1082653 &middot; DRE# 02244476 &nbsp;|&nbsp; Equal Housing Opportunity</p>
+</footer>
+
+</body>
+</html>
