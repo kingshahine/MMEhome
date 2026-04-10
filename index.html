@@ -1524,7 +1524,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <rect x="15.5" y="12" width="3.5" height="3.5" rx="0.3" fill="#1B4F9A"/>
       </svg>
     </div>
-    <div class="nav-logo-text">Making Mortgage Easy</div>
+    <div class="nav-logo-text">Making Mortgage Easy<span>by MME Home</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
@@ -1837,7 +1837,7 @@ select.finput ~ .flabel { top: 9px; transform: translateY(0); font-size: 0.65rem
         <div class="nav-logo-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="footer-brand-name">Making Mortgage Easy<span>Wholesale Mortgage Broker</span></div>
+        <div class="footer-brand-name">Making Mortgage Easy<span>by MME Home</span></div>
       </div>
       <p>Helping California homeowners access better rates through our network of 100+ wholesale lenders.</p>
     </div>
@@ -3025,6 +3025,9 @@ function handlePageOverlayClick(e) {
       <button class="tools-tab active" onclick="switchCalc(this,'mortgage')">Mortgage Payment</button>
       <button class="tools-tab" onclick="switchCalc(this,'heloc')">HELOC</button>
       <button class="tools-tab" onclick="switchCalc(this,'dti')">Debt-to-Income</button>
+      <button class="tools-tab" onclick="switchCalc(this,'cashout')">Cash-Out Refi</button>
+      <button class="tools-tab" onclick="switchCalc(this,'dscr')">DSCR</button>
+      <button class="tools-tab" onclick="switchCalc(this,'afford')">Affordability</button>
     </div>
 
     <!-- MORTGAGE CALCULATOR -->
@@ -3152,4 +3155,188 @@ function handlePageOverlayClick(e) {
           <div class="calc-breakdown-row"><span>FHA Max</span><span>57%</span></div>
           <div class="calc-breakdown-row"><span>DSCR Loans</span><span>No DTI limit</span></div>
         </div>
-        <button class="calc-cta" on
+        <button class="calc-cta" onclick="closeSubPage();setTimeout(()=>openModal(null,''),300)">Get My Rate &rarr;</button>
+      </div>
+    </div>
+
+    <!-- CASH-OUT REFI CALCULATOR -->
+    <div class="calc-panel" id="calc-cashout">
+      <div class="calc-form">
+        <h2>Cash-Out Refinance</h2>
+        <p>See how much cash you can pull out and what your new monthly payment would be.</p>
+        <div class="calc-field">
+          <label class="calc-label">Current Home Value</label>
+          <input type="text" class="calc-input" id="co-value" placeholder="$900,000" oninput="calcCashOut()"/>
+        </div>
+        <div class="calc-field">
+          <label class="calc-label">Current Mortgage Balance</label>
+          <input type="text" class="calc-input" id="co-balance" placeholder="$500,000" oninput="calcCashOut()"/>
+        </div>
+        <div class="calc-row">
+          <div class="calc-field">
+            <label class="calc-label">New Interest Rate (%)</label>
+            <input type="text" class="calc-input" id="co-rate" placeholder="7.0" oninput="calcCashOut()"/>
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Loan Term</label>
+            <select class="calc-input" id="co-term" onchange="calcCashOut()">
+              <option value="30">30 Years</option>
+              <option value="20">20 Years</option>
+              <option value="15">15 Years</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcCashOut()">Calculate</button>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-label">Cash Available</div>
+        <div class="calc-result-num" id="co-cash">$—</div>
+        <div class="calc-result-sub">At 80% LTV max</div>
+        <div class="calc-breakdown">
+          <div class="calc-breakdown-row"><span>New Loan Amount</span><span id="co-newloan">—</span></div>
+          <div class="calc-breakdown-row"><span>New Monthly Payment</span><span id="co-payment">—</span></div>
+          <div class="calc-breakdown-row"><span>Available Equity</span><span id="co-equity">—</span></div>
+          <div class="calc-breakdown-row"><span>Max LTV</span><span>80%</span></div>
+        </div>
+        <button class="calc-cta" onclick="closeSubPage();setTimeout(()=>openModal(null,''),300)">Get My Rate &rarr;</button>
+      </div>
+    </div>
+
+    <!-- DSCR CALCULATOR -->
+    <div class="calc-panel" id="calc-dscr">
+      <div class="calc-form">
+        <h2>DSCR Calculator</h2>
+        <p>Find out if your rental property qualifies for a DSCR loan and what ratio you'd come in at.</p>
+        <div class="calc-field">
+          <label class="calc-label">Monthly Rental Income</label>
+          <input type="text" class="calc-input" id="ds-income" placeholder="$4,500" oninput="calcDSCR()"/>
+        </div>
+        <div class="calc-field">
+          <label class="calc-label">Purchase Price / Loan Amount</label>
+          <input type="text" class="calc-input" id="ds-loan" placeholder="$600,000" oninput="calcDSCR()"/>
+        </div>
+        <div class="calc-row">
+          <div class="calc-field">
+            <label class="calc-label">Interest Rate (%)</label>
+            <input type="text" class="calc-input" id="ds-rate" placeholder="7.5" oninput="calcDSCR()"/>
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Down Payment (%)</label>
+            <input type="text" class="calc-input" id="ds-down" placeholder="25" oninput="calcDSCR()"/>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcDSCR()">Calculate DSCR</button>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-label">Your DSCR Ratio</div>
+        <div class="calc-result-num" id="ds-result">—</div>
+        <div class="calc-result-sub" id="ds-verdict">Enter your numbers above</div>
+        <div class="calc-breakdown">
+          <div class="calc-breakdown-row"><span>Monthly PITIA</span><span id="ds-pitia">—</span></div>
+          <div class="calc-breakdown-row"><span>Rental Income</span><span id="ds-rent">—</span></div>
+          <div class="calc-breakdown-row"><span>Min to Qualify</span><span>0.75 DSCR</span></div>
+          <div class="calc-breakdown-row"><span>Best Rates</span><span>1.25+ DSCR</span></div>
+        </div>
+        <button class="calc-cta" onclick="closeSubPage();setTimeout(()=>openModal(null,''),300)">Check Eligibility &rarr;</button>
+      </div>
+    </div>
+
+    <!-- AFFORDABILITY CALCULATOR -->
+    <div class="calc-panel" id="calc-afford">
+      <div class="calc-form">
+        <h2>Affordability Calculator</h2>
+        <p>Find out how much home you can afford based on your income, debts, and down payment.</p>
+        <div class="calc-field">
+          <label class="calc-label">Annual Gross Income</label>
+          <input type="text" class="calc-input" id="af-income" placeholder="$150,000" oninput="calcAfford()"/>
+        </div>
+        <div class="calc-field">
+          <label class="calc-label">Monthly Debt Payments</label>
+          <input type="text" class="calc-input" id="af-debts" placeholder="$500" oninput="calcAfford()"/>
+        </div>
+        <div class="calc-row">
+          <div class="calc-field">
+            <label class="calc-label">Down Payment</label>
+            <input type="text" class="calc-input" id="af-down" placeholder="$100,000" oninput="calcAfford()"/>
+          </div>
+          <div class="calc-field">
+            <label class="calc-label">Interest Rate (%)</label>
+            <input type="text" class="calc-input" id="af-rate" placeholder="7.0" oninput="calcAfford()"/>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calcAfford()">Calculate</button>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-label">Max Home Price</div>
+        <div class="calc-result-num" id="af-result">$—</div>
+        <div class="calc-result-sub">Based on 43% DTI</div>
+        <div class="calc-breakdown">
+          <div class="calc-breakdown-row"><span>Max Loan Amount</span><span id="af-loan">—</span></div>
+          <div class="calc-breakdown-row"><span>Max Monthly Payment</span><span id="af-payment">—</span></div>
+          <div class="calc-breakdown-row"><span>Monthly Income</span><span id="af-monthly">—</span></div>
+          <div class="calc-breakdown-row"><span>DTI Used</span><span>43%</span></div>
+        </div>
+        <button class="calc-cta" onclick="closeSubPage();setTimeout(()=>openModal(null,''),300)">Get Pre-Qualified &rarr;</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+function calcCashOut() {
+  const val = parseFloat((document.getElementById('co-value').value||'').replace(/[^0-9.]/g,''));
+  const bal = parseFloat((document.getElementById('co-balance').value||'').replace(/[^0-9.]/g,''));
+  const rate = parseFloat(document.getElementById('co-rate').value) / 100 / 12;
+  const term = parseInt(document.getElementById('co-term').value) * 12;
+  if (!val || !bal) return;
+  const maxLoan = val * 0.80;
+  const cash = Math.max(0, maxLoan - bal);
+  const equity = val - bal;
+  const pmt = rate > 0 ? maxLoan * rate / (1 - Math.pow(1+rate,-term)) : maxLoan/term;
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+  document.getElementById('co-cash').textContent = fmt(cash);
+  document.getElementById('co-newloan').textContent = fmt(maxLoan);
+  document.getElementById('co-payment').textContent = fmt(pmt) + '/mo';
+  document.getElementById('co-equity').textContent = fmt(equity);
+}
+
+function calcDSCR() {
+  const rent = parseFloat((document.getElementById('ds-income').value||'').replace(/[^0-9.]/g,''));
+  const loan = parseFloat((document.getElementById('ds-loan').value||'').replace(/[^0-9.]/g,''));
+  const rate = parseFloat(document.getElementById('ds-rate').value) / 100 / 12;
+  const down = parseFloat(document.getElementById('ds-down').value) / 100 || 0.25;
+  if (!rent || !loan) return;
+  const loanAmt = loan * (1 - down);
+  const term = 30 * 12;
+  const pi = rate > 0 ? loanAmt * rate / (1 - Math.pow(1+rate,-term)) : loanAmt/term;
+  const tax = (loan * 0.0125) / 12;
+  const ins = 150;
+  const pitia = pi + tax + ins;
+  const dscr = rent / pitia;
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+  document.getElementById('ds-result').textContent = dscr.toFixed(2);
+  document.getElementById('ds-pitia').textContent = fmt(pitia) + '/mo';
+  document.getElementById('ds-rent').textContent = fmt(rent) + '/mo';
+  document.getElementById('ds-verdict').textContent = dscr >= 1.25 ? 'Excellent — best rates available' : dscr >= 1.0 ? 'Good — qualifies with most lenders' : dscr >= 0.75 ? 'Marginal — limited lender options' : 'Below minimum — may not qualify';
+}
+
+function calcAfford() {
+  const income = parseFloat((document.getElementById('af-income').value||'').replace(/[^0-9.]/g,''));
+  const debts = parseFloat((document.getElementById('af-debts').value||'').replace(/[^0-9.]/g,'')) || 0;
+  const down = parseFloat((document.getElementById('af-down').value||'').replace(/[^0-9.]/g,'')) || 0;
+  const rate = parseFloat(document.getElementById('af-rate').value) / 100 / 12;
+  if (!income) return;
+  const monthly = income / 12;
+  const maxPayment = (monthly * 0.43) - debts;
+  const term = 30 * 12;
+  const maxLoan = rate > 0 ? maxPayment * (1 - Math.pow(1+rate,-term)) / rate : maxPayment * term;
+  const maxHome = maxLoan + down;
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+  document.getElementById('af-result').textContent = fmt(maxHome);
+  document.getElementById('af-loan').textContent = fmt(maxLoan);
+  document.getElementById('af-payment').textContent = fmt(maxPayment) + '/mo';
+  document.getElementById('af-monthly').textContent = fmt(monthly) + '/mo';
+}
+
+</body>
+</html>
