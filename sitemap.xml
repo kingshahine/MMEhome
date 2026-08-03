@@ -25,4 +25,14 @@
   <url><loc>https://mmehome.com/blog-dscr-rates-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://mmehome.com/blog-dscr-markets-california.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://mmehome.com/blog-dscr-requirements-california.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url>
+  <loc>https://mmehome.com/tools.html</loc>
+  <priority>0.8</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://mmehome.com/terms.html</loc>
+  <priority>0.3</priority>
+  <changefreq>yearly</changefreq>
+</url>
 </urlset>
