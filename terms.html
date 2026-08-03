@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- ── PRIMARY SEO ── -->
+<title>Terms of Service | Making Mortgage Easy</title>
+<meta name="description" content="Terms of Service for Making Mortgage Easy, a licensed wholesale mortgage broker in California. NMLS# 1082653, DRE# 02244476.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mmehome.com/terms.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mmehome.com/terms.html">
+<meta property="og:title" content="Terms of Service | Making Mortgage Easy">
+<meta property="og:description" content="Terms of Service for Making Mortgage Easy, a licensed wholesale mortgage broker in California.">
+<meta property="og:site_name" content="Making Mortgage Easy">
+<meta property="og:locale" content="en_US">
+
+<!-- ── STRUCTURED DATA: BreadcrumbList ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmehome.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://mmehome.com/terms.html" }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --navy: #0B2348;
+  --navy-mid: #163660;
+  --navy-light: #1E4D8C;
+  --blue: #1B4F9A;
+  --blue-bright: #2E6FCC;
+  --accent: #C8960A;
+  --white: #FFFFFF;
+  --off-white: #F6F8FB;
+  --grey-light: #E4EAF2;
+  --grey-mid: #8EA3BF;
+  --grey-text: #4A6480;
+  --text: #0B2348;
+  --radius-lg: 28px;
+  --shadow: 0 4px 24px rgba(11,35,72,0.08);
+  --shadow-lg: 0 20px 60px rgba(11,35,72,0.13);
+  --shadow-blue: 0 8px 32px rgba(27,79,154,0.22);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(13,27,62,0.07);
+  padding: 0 5%;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: var(--shadow); }
+.nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav-logo-icon {
+  width: 38px; height: 38px; background: #0B2348;
+  border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.nav-logo-icon svg { width: 20px; height: 20px; }
+.nav-logo-text { font-size: 1rem; font-weight: 600; color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; }
+.nav-logo-text span { display: block; font-size: 0.62rem; font-weight: 500; color: var(--grey-mid); letter-spacing: 0.02em; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--grey-text); font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  background: var(--blue) !important; color: var(--white) !important;
+  padding: 9px 22px !important; border-radius: 8px; font-weight: 600 !important;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
+  box-shadow: var(--shadow-blue) !important;
+}
+.nav-cta:hover { background: #0E50C8 !important; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(25,103,228,0.45) !important; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
+  .nav-links { display: none; }
+}
+.mobile-nav-drawer {
+  position: fixed; top: 72px; left: 0; right: 0; z-index: 99;
+  background: var(--white); border-bottom: 1px solid var(--grey-light);
+  box-shadow: var(--shadow-lg);
+  display: flex; flex-direction: column;
+  transform: translateY(-110%); transition: transform 0.3s ease;
+  padding: 16px 5%;
+}
+.mobile-nav-drawer.open { transform: translateY(0); }
+.mobile-nav-drawer a {
+  text-decoration: none; color: var(--grey-text);
+  font-size: 0.95rem; font-weight: 500;
+  padding: 14px 0; border-bottom: 1px solid var(--grey-light);
+  transition: color 0.2s;
+}
+.mobile-nav-drawer a:last-child { border-bottom: none; }
+.mobile-nav-drawer a:hover { color: var(--navy); }
+.mobile-nav-cta {
+  background: var(--blue) !important; color: white !important;
+  border-radius: 8px; padding: 14px 20px !important;
+  text-align: center; margin-top: 8px; border: none !important;
+  font-weight: 600 !important;
+}
+
+/* ── LEGAL PAGE CONTENT ── */
+.legal-content { max-width: 740px; margin: 0 auto; padding: 128px 5% 80px; }
+.legal-content h1 { font-family: 'Instrument Serif', serif; font-size: clamp(1.8rem,4vw,2.4rem); color: var(--navy); margin-bottom: 8px; letter-spacing: -0.02em; }
+.legal-content .last-updated { font-size: 0.78rem; color: var(--grey-mid); margin-bottom: 40px; display: block; }
+.legal-content h2 { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin: 32px 0 10px; }
+.legal-content p { font-size: 0.92rem; color: var(--grey-text); line-height: 1.8; margin-bottom: 14px; }
+.legal-content ul { padding-left: 20px; margin-bottom: 14px; }
+.legal-content ul li { font-size: 0.92rem; color: var(--grey-text); line-height: 1.8; margin-bottom: 6px; }
+.legal-content a { color: var(--blue); }
+
+/* ── FOOTER ── */
+footer { background: #0B2348; border-top: 1px solid rgba(255,255,255,0.08); padding: 52px 5% 32px; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+.footer-brand-name { font-size: 1rem; font-weight: 600; color: white; }
+.footer-brand-name span { display: block; font-size: 0.62rem; font-weight: 400; color: rgba(255,255,255,0.35); margin-top: 1px; letter-spacing: 0.03em; }
+.footer-brand p { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 10px; max-width: 250px; line-height: 1.6; }
+.footer-links { display: flex; gap: 56px; flex-wrap: wrap; }
+.footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
+.footer-col a { display: block; text-decoration: none; font-size: 0.855rem; color: rgba(255,255,255,0.6); margin-bottom: 9px; transition: color 0.2s; }
+.footer-col a:hover { color: white; }
+.footer-bottom { padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.7rem; color: rgba(255,255,255,0.28); line-height: 1.65; }
+.footer-bottom-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+.footer-bottom-top span { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+.footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+/* ── LEAD MODAL (for nav CTA) ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(13,27,62,0.72);
+  backdrop-filter: blur(8px); z-index: 200;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--white); border-radius: var(--radius-lg); padding: 40px;
+  max-width: 500px; width: 100%; position: relative;
+  box-shadow: 0 24px 80px rgba(13,27,62,0.3);
+  transform: translateY(20px); transition: transform 0.3s;
+  overflow-y: auto; max-height: 90vh;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--grey-light); border: none; cursor: pointer;
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: var(--grey-text); transition: background 0.2s;
+}
+.modal-close:hover { background: #dde2eb; }
+.modal-h2 { font-family: 'Instrument Serif', serif; font-size: 1.65rem; color: var(--navy); margin-bottom: 6px; line-height: 1.2; }
+.modal-sub { font-size: 0.86rem; color: var(--grey-text); margin-bottom: 24px; line-height: 1.55; }
+.fwrap { position: relative; margin-bottom: 12px; }
+.finput {
+  width: 100%; padding: 20px 14px 7px;
+  border: 1.5px solid var(--grey-light); border-radius: 9px;
+  font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+  color: var(--text); background: var(--off-white); outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none; -webkit-appearance: none; box-sizing: border-box;
+}
+.finput:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(25,103,228,0.1); background: var(--white); }
+.flabel {
+  position: absolute; top: 50%; left: 14px; transform: translateY(-50%);
+  font-size: 0.88rem; color: var(--grey-mid); font-weight: 500;
+  pointer-events: none; transition: all 0.15s ease; white-space: nowrap;
+}
+.finput:focus ~ .flabel, .finput:not(:placeholder-shown) ~ .flabel {
+  top: 9px; transform: translateY(0); font-size: 0.65rem; color: var(--blue); font-weight: 600; letter-spacing: 0.03em;
+}
+.modal-footer-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-top: 20px; padding-top: 16px;
+  border-top: 1px solid var(--grey-light); flex-wrap: wrap;
+}
+.modal-footer-note { font-size: 0.72rem; color: var(--grey-mid); flex: 1; min-width: 160px; }
+.modal-continue-btn {
+  background: #1B4F9A; color: var(--white); border: none; border-radius: 100px;
+  padding: 12px 28px; font-size: 0.92rem; font-weight: 600;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s, transform 0.15s; white-space: nowrap;
+}
+.modal-continue-btn:hover { background: #0B2348; transform: translateY(-1px); }
+
+@media (max-width: 600px) {
+  .legal-content { padding: 100px 4% 60px; }
+  .modal { padding: 24px 16px; border-radius: 16px; }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JFQTS4J4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-5JFQTS4J4P');
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="12,2 22,10 2,10" fill="white"/>
+        <rect x="15" y="3.5" width="2.5" height="4" rx="0.3" fill="white"/>
+        <rect x="3.5" y="10" width="17" height="12" rx="0.5" fill="white"/>
+        <rect x="10" y="15" width="4" height="7" rx="0.5" fill="#1B4F9A"/>
+        <rect x="5" y="12" width="3.5" height="3.5" rx="0.3" fill="#1B4F9A"/>
+        <rect x="15.5" y="12" width="3.5" height="3.5" rx="0.3" fill="#1B4F9A"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">Making Mortgage Easy<span>by MME Home</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#products">Products</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener">Reviews</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal(event,'')">Get My Rate</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+  <a href="index.html#products" onclick="closeMobileNav()">Products</a>
+  <a href="index.html#about" onclick="closeMobileNav()">About</a>
+  <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener" onclick="closeMobileNav()">Reviews</a>
+  <a href="tools.html" onclick="closeMobileNav()">Tools</a>
+  <a href="blog.html" onclick="closeMobileNav()">Blog</a>
+  <a href="#" onclick="openModal(event,'');closeMobileNav()" class="mobile-nav-cta">Get My Rate</a>
+</div>
+
+<!-- TERMS CONTENT -->
+<div class="legal-content">
+  <h1>Terms of Service</h1>
+  <span class="last-updated">Last updated: March 2026</span>
+
+  <h2>1. Acceptance of Terms</h2>
+  <p>By accessing or using mmehome.com, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree, you are prohibited from using this site.</p>
+
+  <h2>2. Description of Services</h2>
+  <p>Making Mortgage Easy is a licensed wholesale mortgage broker (NMLS# 1082653, DRE# 02244476) operating in the state of California. We connect consumers with wholesale lenders for the purpose of obtaining residential mortgage financing. We are not a lender and do not make credit decisions.</p>
+
+  <h2>3. No Guarantee of Loan Approval</h2>
+  <p>Submitting a request through our site does not constitute a loan application or a guarantee of financing. All loan products are subject to credit approval, property appraisal, income verification, and lender underwriting guidelines. Rates shown are estimates and are subject to change without notice.</p>
+
+  <h2>4. Accuracy of Information</h2>
+  <p>You agree to provide accurate, current, and complete information when submitting any form on our site. Providing false or misleading information in connection with a mortgage application is a federal crime under 18 U.S.C. § 1014.</p>
+
+  <h2>5. Authorization for Credit and Background Checks</h2>
+  <p>By submitting a pre-qualification request, you authorize Making Mortgage Easy and its lending partners to:</p>
+  <ul>
+    <li>Obtain a soft credit inquiry from consumer reporting agencies</li>
+    <li>Verify your identity, income, and employment information</li>
+    <li>Share your information with wholesale lenders in our network for the purpose of evaluating your loan request</li>
+  </ul>
+
+  <h2>6. Communications Consent</h2>
+  <p>By submitting your contact information, you consent to receive communications from Making Mortgage Easy via phone, email, and SMS regarding your inquiry. Standard messaging rates may apply. You may opt out at any time by replying STOP to any SMS message or clicking unsubscribe in any email.</p>
+
+  <h2>7. Electronic Communications</h2>
+  <p>By using our site, you consent to receive all disclosures, notices, and communications electronically. You confirm that you are able to access, view, retain, and print electronic communications.</p>
+
+  <h2>8. Intellectual Property</h2>
+  <p>All content on this site including text, graphics, logos, and code is the property of Making Mortgage Easy and protected by applicable copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
+
+  <h2>9. Disclaimer of Warranties</h2>
+  <p>This site is provided "as is" without any warranties of any kind, express or implied. Making Mortgage Easy does not warrant that the site will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+
+  <h2>10. Limitation of Liability</h2>
+  <p>To the fullest extent permitted by law, Making Mortgage Easy shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this site or our services, even if advised of the possibility of such damages.</p>
+
+  <h2>11. Regulatory Compliance</h2>
+  <p>Making Mortgage Easy operates in compliance with applicable federal and state laws including the Real Estate Settlement Procedures Act (RESPA), the Truth in Lending Act (TILA), the Fair Credit Reporting Act (FCRA), the Equal Credit Opportunity Act (ECOA), and the Gramm-Leach-Bliley Act (GLBA).</p>
+  <p>Making Mortgage Easy is an Equal Housing Lender. We do not discriminate on the basis of race, color, religion, national origin, sex, marital status, age, or any other protected characteristic.</p>
+
+  <h2>12. Governing Law</h2>
+  <p>These Terms of Service shall be governed by the laws of the State of California without regard to its conflict of law provisions. Any disputes shall be resolved in the courts of Los Angeles County, California.</p>
+
+  <h2>13. Changes to Terms</h2>
+  <p>We reserve the right to modify these Terms at any time. Continued use of the site after changes constitutes acceptance of the new terms.</p>
+
+  <h2>14. Contact</h2>
+  <p>Making Mortgage Easy | NMLS# 1082653 | DRE# 02244476<br>
+  Email: <a href="mailto:shane@shieldhomeloans.com">shane@shieldhomeloans.com</a><br>
+  Equal Housing Lender. Licensed in California.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="footer-brand-name">Making Mortgage Easy<span>by MME Home</span></div>
+      </div>
+      <p>Helping California homeowners access better rates through our network of 100+ wholesale lenders.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="heloc.html">HELOC</a>
+        <a href="dscr.html">DSCR Loans</a>
+        <a href="purchase.html">Purchase</a>
+        <a href="refinance.html">Refinance</a>
+        <a href="cashout.html">Cash-Out Refi</a>
+        <a href="fhava.html">FHA / VA</a>
+        <a href="hea.html">Home Equity Agreement</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="index.html#about">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="tools.html">Tools &amp; Calculators</a>
+        <a href="https://www.zillow.com/lender-profile/Shane%20Bakhtiari/" target="_blank" rel="noopener">Zillow Profile</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+19496911335">(949) 691-1335</a>
+        <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS Consumer Access</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-top">
+      <span>&copy; 2026 Making Mortgage Easy. All rights reserved.</span>
+      <span>NMLS# 1082653 &middot; DRE# 02244476 &middot; Equal Housing Lender</span>
+    </div>
+    <p>Making Mortgage Easy is a licensed wholesale mortgage broker. We are not a lender. Loan products are subject to credit and property approval. Rates are subject to change without notice and are not guaranteed. Not all applicants will qualify. Equal Housing Opportunity. Licensed in California. NMLS# 1082653 | DRE# 02244476. <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS Consumer Access</a>.</p>
+  </div>
+</footer>
+
+<!-- LEAD MODAL (simplified — address capture + contact) -->
+<div class="modal-overlay" id="leadModal" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+    <div class="modal-h2">Get your free rate quote</div>
+    <p class="modal-sub">No credit pull. No obligation. A consultant will reach out within 1 business day with rate options across our 100+ lender network.</p>
+    <div class="fwrap">
+      <input type="text" class="finput" id="modalName" placeholder=" " />
+      <label class="flabel">Full name</label>
+    </div>
+    <div class="fwrap">
+      <input type="email" class="finput" id="modalEmail" placeholder=" " />
+      <label class="flabel">Email address</label>
+    </div>
+    <div class="fwrap">
+      <input type="tel" class="finput" id="modalPhone" placeholder=" " />
+      <label class="flabel">Phone number</label>
+    </div>
+    <div class="modal-footer-row">
+      <span class="modal-footer-note">We'll never sell your information.</span>
+      <button class="modal-continue-btn" onclick="window.location.href='index.html'">Continue on Home &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMobileNav() { document.getElementById('mobileNavDrawer').classList.toggle('open'); }
+function closeMobileNav() { document.getElementById('mobileNavDrawer').classList.remove('open'); }
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+});
+function openModal(e) {
+  if (e) e.preventDefault();
+  document.getElementById('leadModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('leadModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('leadModal')) closeModal();
+}
+</script>
+
+</body>
+</html>
