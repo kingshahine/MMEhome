@@ -335,9 +335,6 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-
-
 <!-- ELIGIBILITY -->
 <section class="reveal" style="padding:80px 5%;background:var(--off-white)">
   <div style="max-width:1100px;margin:0 auto">
@@ -465,9 +462,8 @@ select.finput~.flabel{top:9px;transform:translateY(0);font-size:0.65rem;color:va
       <h2 class="modal-h2">Tell us about your property</h2>
       <p class="modal-sub">Enter the property address to get started.</p>
       <div class="fwrap" style="position:relative">
-        <input class="finput" id="modalAddress" type="text" placeholder=" " autocomplete="off" oninput="handleAddressInput(this.value,'modalDropdown','modalAddress')">
+        <input class="finput" id="modalAddress" type="text" placeholder=" " autocomplete="off">
         <label class="flabel">Property address</label>
-        <div class="autocomplete-dropdown" id="modalDropdown"></div>
       </div>
       <p style="font-size:0.78rem;font-weight:600;color:var(--navy);margin:16px 0 10px">Ownership type</p>
       <div class="yn-tiles" id="ownershipTiles">
@@ -605,10 +601,50 @@ async function handleFinalSubmit(){
   var btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='Submitting...';
   var p=document.getElementById('modalAddress').value.trim().split(',').map(function(s){return s.trim();});
   var sz=(p[2]||'').trim().split(' ');
-  var payload={first_name:document.getElementById('inputFirstName').value.trim(),last_name:document.getElementById('inputLastName').value.trim(),email:email,phone:phone.replace(/\D/g,'').slice(0,10),address:p[0]||'',city:p[1]||'',state:sz[0]||'',zip:sz[1]||'',property_address:p[0]||'',property_city:p[1]||'',property_state:sz[0]||'',property_use:(document.querySelector('#occTiles .occ-tile.selected')||{}).textContent||'',ownership_type:(document.querySelector('#ownershipTiles .yn-tile.selected')||{}).textContent||'',income_source:document.getElementById('inputIncomeSource').value,pre_tax_income:document.getElementById('inputPreTaxIncome').value,foreclosure:(document.querySelector('#latesTiles .yn-tile.selected')||{}).textContent==='Yes'?'yes':'no',lead_source:'Making Mortgage Easy',application_date:new Date().toISOString().split('T')[0]};
-  try{navigator.sendBeacon('https://app.getbonzo.com/api/webhook/92f320ebcd9163f70b63a6537a92e7d6',new Blob([JSON.stringify(payload)],{type:'application/json'}));}catch(e){}
-  document.getElementById('step7').classList.remove('active');
-  document.getElementById('stepSuccess').classList.add('active');
+  var firstName=document.getElementById('inputFirstName').value.trim();
+  var lastName=document.getElementById('inputLastName').value.trim();
+  var propertyAddress=p[0]||'';
+  var propertyCity=p[1]||'';
+  var propertyUse=(document.querySelector('#occTiles .occ-tile.selected')||{}).textContent||'';
+  var ownershipType=(document.querySelector('#ownershipTiles .yn-tile.selected')||{}).textContent||'';
+  var mortgageLates=(document.querySelector('#latesTiles .yn-tile.selected')||{}).textContent==='Yes'?'Yes':'No';
+  var incomeSource=document.getElementById('inputIncomeSource').value;
+  var preTaxIncome=document.getElementById('inputPreTaxIncome').value;
+
+  // ── FORMSPREE ── sends a formatted lead email straight to your inbox
+  var FORMSPREE_ENDPOINT='https://formspree.io/f/mzdnngoj';
+  var formspreePayload={
+    _subject:'New DSCR lead — mmehome.com'+(firstName?' — '+firstName+' '+lastName:''),
+    name:(firstName+' '+lastName).trim(),
+    email:email,
+    phone:phone,
+    property_address:propertyAddress,
+    property_city:propertyCity,
+    property_state:sz[0]||'',
+    ownership_type:ownershipType,
+    property_use:propertyUse,
+    mortgage_lates:mortgageLates,
+    income_source:incomeSource,
+    pre_tax_income:preTaxIncome,
+    lead_source:'Making Mortgage Easy Website — DSCR Page',
+    submitted_at:new Date().toLocaleString()
+  };
+
+  try{
+    await fetch(FORMSPREE_ENDPOINT,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(formspreePayload)
+    });
+  }catch(e){
+    // Still show success even if the network call fails — don't strand the user
+  }finally{
+    document.getElementById('step7').classList.remove('active');
+    document.getElementById('stepSuccess').classList.add('active');
+    if(typeof gtag==='function'){
+      gtag('event','generate_lead',{lead_source:formspreePayload.lead_source});
+    }
+  }
 }
 window.addEventListener('scroll',function(){var n=document.querySelector('nav');if(n)n.classList.toggle('scrolled',window.scrollY>20);});
 document.querySelectorAll('.reveal').forEach(function(el){new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1}).observe(el);});
